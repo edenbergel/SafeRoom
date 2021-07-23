@@ -1,0 +1,15 @@
+.timeslots {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 30%;
+
+  .timeslots__wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    &:first-of-type {
+      margin-bottom: 3rem;
+    }
+  }
+}

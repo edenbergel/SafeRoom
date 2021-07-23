@@ -1,0 +1,24 @@
+@import '../../css/var/var.scss';
+
+.Floor{
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-transform: uppercase;
+  color: $grey;
+  font-weight: 600;
+  margin-bottom: 30px;
+  &.active{
+    color: $purple;
+    div{
+      background: $purple;
+    }
+  }
+  div{
+    height: 3px;
+    width: 30px;
+    background: $grey;
+    margin-left: 10px;
+  }
+}

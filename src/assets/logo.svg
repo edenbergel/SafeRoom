@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="52.331" height="68.5" viewBox="0 0 52.331 68.5">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#4461f2"/>
+      <stop offset="0.665" stop-color="#4461f2" stop-opacity="0.655"/>
+      <stop offset="1" stop-color="#435fee" stop-opacity="0.482"/>
+      <stop offset="1" stop-color="#4461f2"/>
+    </linearGradient>
+  </defs>
+  <g id="Groupe_32318" data-name="Groupe 32318" transform="translate(-63 -32)">
+    <path id="Tracé_843" data-name="Tracé 843" d="M894.515,351.608c1.645.3,3.214.454,4.7.882a17.428,17.428,0,0,1-4.847,34.184q-17.058.017-34.116.008h-.565l-.1-.135,17.167-17.182c-1.344-.2-2.622-.321-3.863-.6a17.442,17.442,0,0,1,4.118-34.417q16.963-.02,33.925,0h.665l.06.157Zm-.194,17.634V351.814c-.249-.012-.455-.031-.661-.031-5.346,0-10.692.009-16.038-.015-.6,0-.73.189-.728.753.019,5.346.011,10.692.013,16.038,0,.223.02.445.031.683Z" transform="translate(-796.475 -302.339)" fill="url(#linear-gradient)"/>
+    <text id="SAFE_ROOM" data-name="SAFE ROOM" transform="translate(63 98.5)" fill="#4461f2" font-size="8" font-family="Montserrat-Bold, Montserrat" font-weight="700"><tspan x="0" y="0">SAFE ROOM</tspan></text>
+  </g>
+</svg>

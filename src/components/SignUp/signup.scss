@@ -1,0 +1,66 @@
+@import '../../css/var/var.scss';
+
+.SignUp{
+  display: flex;
+  >div{
+    width: 50%;
+    height: 100vh;
+    &:last-child{
+      background: $purple;
+      display: flex;
+      align-items: center;
+      img{
+        width: 100%;
+      }
+    }
+  }
+  h1{
+    color: $purple;
+    font-size: 44px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    line-height: 150%;
+  }
+}
+
+.SignUp_form{
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  form{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20vh;
+  }
+  label{
+    color: $grey;
+    font-weight: 600;
+    margin-top: 30px;
+  }
+  input{
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #E6E6E6;
+    font-family: $primaryFont;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    margin-top: 15px;
+    &::placeholder{
+      font-family: $primaryFont;
+    }
+  }
+  button{
+    width: 100%;
+    background: $purple;
+    border: none;
+    color: #FFF;
+    border-radius: 10px;
+    padding: 15px;
+    font-weight: 600;
+    font-size: 18px;
+    margin-top: 50px;
+    font-family: $primaryFont;
+  }
+}

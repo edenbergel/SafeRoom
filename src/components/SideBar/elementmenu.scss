@@ -1,0 +1,12 @@
+@import '../../css/var/var.scss';
+
+.ElementMenu{
+  padding: 15px 0 15px 30px;
+  color: $black;
+  font-weight: 500;
+  border-radius: 10px 0 0 10px;
+  &.active{
+    background: $purple;
+    color: #FFF;
+  }
+}

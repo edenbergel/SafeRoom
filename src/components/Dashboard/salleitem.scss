@@ -1,0 +1,27 @@
+@import '../../css/var/var.scss';
+
+.SalleItem{
+  height: 170px;
+  width: 170px;
+  background: $lightBlue;
+  border-radius: 14px;
+  margin: 0 15px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  >div:first-child{
+    height: 7px;
+    width: 7px;
+    border-radius: 50%;
+    &.green{
+      background: $green;
+    }
+    &.orange{
+      background: $orange;
+    }
+    &.red{
+      background: $red;
+    }
+  }
+}
