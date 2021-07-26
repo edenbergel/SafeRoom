@@ -33,6 +33,8 @@ function Booking() {
     localStorage.setItem("nbSeatSelected", nbSeatSelected);
   },[onQuantityChange]);
 
+  const enableSteps = nbSeatSelected === null ? false : true;
+
   return (
     <div className="seats__container">
       <div className="seats__inner">
@@ -45,7 +47,7 @@ function Booking() {
           <InputNumber min={0} max={8} defaultValue={0} onChange={onQuantityChange} size="large" />
         </div>
       </div>
-      <StepButtons prev="hours" next="summary" />
+      <StepButtons prev="hours" next="summary" enableSteps={enableSteps} />
     </div>
   )
 }

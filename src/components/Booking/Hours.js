@@ -24,13 +24,15 @@ function Hours() {
     localStorage.setItem("selectedTimeEnd", moment(timeEnd).format("HH"));
   },[onTimeStart, onTimeEnd]);
 
+  const enableSteps = timeEnd === null ? false : true;
+
   return (
     <div className="hours">
       <div className="hours_wrapper">
         <TimePicker format="hh:mm" onChange={onTimeStart} disabledHours={() => disabledHours} hideDisabledOptions={true} minuteStep={30} size="large"/>
         <TimePicker format="hh:mm" onChange={onTimeEnd} disabledHours={() => disabledHours} hideDisabledOptions={true} minuteStep={30} size="large"/>
       </div>
-      <StepButtons prev="booking" next="seats" />
+      <StepButtons prev="booking" next="seats" enableSteps={enableSteps} />
     </div>
   );
 }

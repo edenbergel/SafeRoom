@@ -21,9 +21,15 @@
       margin-right: 1rem;
     }
 
-    &.step_buttons_next::after {
-      content: "\27F6";
-      margin-left: 1rem;
+    &.step_buttons_next {
+      &[disabled] {
+        color: $grey;
+      }
+      
+      &::after {
+        content: "\27F6";
+        margin-left: 1rem;
+      }
     }
 
     &:focus {
