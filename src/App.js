@@ -9,6 +9,7 @@ import './App.scss';
 
 import SignUp from './components/SignUp/SignUp';
 import ContentUser from './components/ContentUser/ContentUser';
+
 function App() {
 
   return (
@@ -18,6 +19,15 @@ function App() {
           <Switch>
             <Route exact path="/">
               <SignUp />
+            </Route>
+            <Route path="/summary">
+              <ContentUser />
+            </Route>
+            <Route path="/seats">
+              <ContentUser />
+            </Route>
+            <Route path="/hours">
+              <ContentUser />
             </Route>
             <Route path="/dashboard">
               <ContentUser />

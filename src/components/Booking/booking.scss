@@ -1,44 +1,97 @@
+@import '../../css/styles.scss';
+
 .seat__item_wrapper {
   &.selected{
     >div:first-child {
-      background-color: #4461F2;
+      background-color: $purple;
       &:before {
         background-color: #fff;
       }
     }
   }
+
   &:nth-of-type(2n) {
     display: flex;
     flex-direction: column-reverse;
   }
 }
 
-.seats {
+.seats__inner {
   display: flex;
-  width: 15%;
-  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid $lightBlue;
+  padding: 2rem;
 
-  .seat__item {
-    background-color: #EAF0F7;
-    width: fit-content;
-    padding: .5rem;
-    border-radius: 5px;
+  .seats {
+    display: flex;
+    width: 39%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  
+    .seat__item {
+      background-color: $lightBlue;
+      width: fit-content;
+      padding: .5rem;
+      border-radius: 5px;
+      margin-bottom: .5rem;
+  
+      &:before {
+        content: "";
+        mask: url("../../assets/seat-available.svg") no-repeat center;
+        background-color: $lightPurple;
+        width: 3rem;
+        height: 3rem;
+        display: block;
+      }
+  
+      &.seat__item-active {
+        background-color: $purple;
+  
+        &:before {
+          background-color: #fff;
+        }
+      }
+    }
+  }
 
-    &:before {
-      content: "";
-      mask: url("../../assets/seat-available.svg") no-repeat center;
-      background-color: #B1BDF7;
-      width: 3rem;
-      height: 3rem;
-      display: block;
+  p {
+    font-family: $primaryFont;
+    color: $purple;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .ant-input-number {
+    height: fit-content;
+    border-radius: 4px;
+    border: none;
+
+    .ant-input-number-handler-wrap {
+      opacity: 1;
+      background-color: transparent;
+
+      .ant-input-number-handler {
+        background-color: $purple;
+
+        svg {
+          fill: #fff;
+        }
+
+        &.ant-input-number-handler-up {
+          border-radius: 4px 4px 0 0;
+        }
+
+        &.ant-input-number-handler-down {
+          border-radius: 0 0 4px 4px;
+        }
+      }
     }
 
-    &.seat__item-active {
-      background-color: #4461F2;
-
-      &:before {
-        background-color: #fff;
-      }
+    .ant-input-number-input {
+      border: 1px solid $purple;
+      font-family: $primaryFont;
+      color: $purple;
     }
   }
 }

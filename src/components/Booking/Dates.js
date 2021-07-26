@@ -10,12 +10,15 @@ import 'moment/locale/fr';
 
 function Dates() {
   const [dateState, setDateState] = useState(new Date());
-
+  
   const changeDate = (e) => {
     setDateState(e);
   }
 
+  console.log(moment(dateState + 'UTC').utc().format('YYYY-MM-DDTHH:mm:ss.SSS[Z]'));
+  
   useEffect(() => {
+    localStorage.setItem("selectedDateInitial", moment(dateState + 'UTC').utc().format('YYYY-MM-DDTHH:mm:ss.SSS[Z]'));
     localStorage.setItem("selectedDate", moment(dateState).format('dddd Do MMMM YYYY'));
   },[changeDate])
 

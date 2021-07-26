@@ -24,12 +24,12 @@ function Hours() {
   },[onTimeStart, onTimeEnd]);
 
   return (
-    <div className="Hours">
-      <p>{localStorage.getItem("selectedDate")}</p>
-
-      <TimePicker defaultValue={moment('08:00', 'HH:mm')} format={'HH:mm'} onChange={onTimeStart} disabledHours={() => disabledHours} hideDisabledOptions={true} size="large"/>
-      <TimePicker defaultValue={moment('19:00', 'HH:mm')} format={'HH:mm'} onChange={onTimeEnd} disabledHours={() => disabledHours} hideDisabledOptions={true} size="large"/>
-      <button onClick={() => window.location.assign('/places')}>Next</button>
+    <div className="hours">
+      <div className="hours_wrapper">
+        <TimePicker format="hh:mm" onChange={onTimeStart} disabledHours={() => disabledHours} hideDisabledOptions={true} minuteStep={30} size="large"/>
+        <TimePicker format="hh:mm" onChange={onTimeEnd} disabledHours={() => disabledHours} hideDisabledOptions={true} minuteStep={30} size="large"/>
+      </div>
+      <button onClick={() => window.location.assign('/seats')}>Next</button>
     </div>
   );
 }

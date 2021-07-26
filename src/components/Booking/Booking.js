@@ -5,7 +5,7 @@ import './booking.scss';
 
 function Booking() {
 
-  const seats = [0, 1, 2, 3, 4, 5, 6];
+  const seats = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
   const [nbSeatSelected, setNbSeatSelected] = useState(null);
 
   const seatsItems = seats.map(seat =>
@@ -34,11 +34,17 @@ function Booking() {
 
   return (
     <div className="seats__container">
-      <div className="seats">
-        {seatsItems}
+      <div className="seats__inner">
+        <div className="seats">
+          {seatsItems}
+        </div>
+
+        <div>
+          <p>Quantité</p>
+          <InputNumber min={0} max={8} defaultValue={0} onChange={onQuantityChange} size="large" />
+        </div>
       </div>
-      <InputNumber min={0} max={7} defaultValue={0} onChange={onQuantityChange} />
-      <button onClick={() => window.location.assign('/recap')}>Next</button>
+      <button onClick={() => window.location.assign('/summary')}>Next</button>
     </div>
   )
 }

@@ -21,6 +21,12 @@ function ContentUser() {
       case '/calendar':
         return <Calendar />;
       case '/booking':
+        return <Dates />;
+      case '/hours':
+        return <Hours />;
+      case '/seats':
+        return <Booking />;
+      case '/summary':
         return <Summary />;
       case '/salles/' + idSalle:
         return <Salle id={idSalle} />;

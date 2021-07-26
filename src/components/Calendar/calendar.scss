@@ -1,1 +1,100 @@
 @import 'react-big-calendar/lib/sass/styles';
+@import '../../css/styles.scss';
+
+.rbc-calendar {
+  font-family: $primaryFont;
+
+  div, .rbc-month-row + .rbc-month-row {
+    border: none;
+  }
+
+  .rbc-toolbar {
+    width: 25%;
+    position: relative;
+
+    .rbc-toolbar-label {
+      text-transform: capitalize;
+      font-size: 1.25rem;
+      font-weight: 600;
+      text-align: left;
+      margin-top: 2rem;
+    }
+  }
+
+  .rbc-btn-group:first-of-type {
+    button {
+      font-size: 0;
+      border: none;
+
+      &:before {
+        content: "\2039";
+        font-size: 1.5rem;
+      }
+
+      &:first-of-type {
+        display: none;
+      }
+
+      &:last-of-type {
+        position: absolute;
+        right: 8rem;
+
+        &::before {
+          content: "\203A";
+        }
+      }
+    }
+  }
+
+  .rbc-toolbar-label + .rbc-btn-group {
+    display: none;
+  } 
+
+  .rbc-header, .rbc-toolbar-label {
+    &:after {
+      content: "";
+      width: 5rem;
+      height: 3px;
+      background-color: $purple;
+      display: block;
+      margin-top: 1.5rem;
+    }
+  }
+
+  .rbc-header {
+    text-transform: capitalize;
+    font-weight: 500;
+    text-align: left;
+    border-left: none;
+    margin: 3rem 0;
+  }
+
+  .rbc-day-bg {
+    opacity: 0;
+  }
+  
+  .rbc-date-cell {
+    text-align: left;
+    z-index: 1;
+    text-indent: 2.5%;
+    height: 2rem;
+    padding-top: 0.5rem;
+  }
+
+  .rbc-event {
+    background-color: transparent;
+    color: $purple;
+    padding-left: 0;
+
+    &::before {
+      content: "";
+      background-color: $purple;
+      width: 2rem;
+      height: 2rem;
+      display: block;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+    }
+  }
+}
