@@ -6,7 +6,7 @@ function StepButtons(props) {
   console.log(props.enableSteps, props);
 
   return (
-    <div className="step_buttons">
+    <div className={ props.prev === null ? 'step_buttons step_buttons_only' : 'step_buttons'}>
       { props.prev === null ? 
         "" : <button className="step_buttons_prev" onClick={() => window.location.assign('/' + props.prev)}>Étape précedente</button> 
       }
