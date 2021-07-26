@@ -20,6 +20,9 @@ function App() {
             <Route exact path="/">
               <SignUp />
             </Route>
+            <Route path="/confirmation">
+              <ContentUser />
+            </Route>
             <Route path="/summary">
               <ContentUser />
             </Route>

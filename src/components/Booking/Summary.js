@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import StepButtons from '../StepButtons/StepButtons';
 import './summary.scss';
 
 const axios = require('axios');
@@ -33,22 +34,30 @@ function Summary() {
       axios.post('https://saferoom-hetic.herokuapp.com/reservations', summaryData)
       .then(function (response) {
         console.log(response);
-        //redirectToTest()
+        redirectToConfirmation()
       })
       .catch(function (error) {
         console.log(error);
       })
   }
 
+  const redirectToConfirmation = () => {
+    window.location.assign('/confirmation');
+  } 
+
   return (
     <div className="summary">
-      <h1>Récapitulatif de votre réservation</h1>
-      <div><p>Date</p> {localStorage.getItem("selectedDate")}</div>
-      <div><p>Horaires</p> {localStorage.getItem("selectedTimeStart")}h à {localStorage.getItem("selectedTimeEnd")}h</div>
-      <div><p>Salle</p> </div>
-      <div className="seats"><p>{localStorage.getItem("nbSeatSelected") > 1 ? 'Places' : 'Place' }</p> {recapSeatsArray}</div>
+      <div className="summary_wrapper">
+        <h1>Récapitulatif de votre réservation</h1>
+        <div><p>Date</p> {localStorage.getItem("selectedDate")}</div>
+        <div><p>Horaires</p> {localStorage.getItem("selectedTimeStart")}h à {localStorage.getItem("selectedTimeEnd")}h</div>
+        <div><p>Salle</p> </div>
+        <div className="seats"><p>{localStorage.getItem("nbSeatSelected") > 1 ? 'Places' : 'Place' }</p> {recapSeatsArray}</div>
 
-      <button type="submit" className="summary_btn" onClick={sendDetailsToServer}>Valider</button>
+        <button type="submit" className="summary_btn" onClick={sendDetailsToServer}>Valider</button>
+      </div>
+      
+      <StepButtons prev="seats" next={null} />
     </div>
   )
 }

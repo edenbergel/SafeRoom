@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { InputNumber } from 'antd';
 
 import './booking.scss';
+import StepButtons from '../StepButtons/StepButtons';
 
 function Booking() {
 
@@ -44,7 +45,7 @@ function Booking() {
           <InputNumber min={0} max={8} defaultValue={0} onChange={onQuantityChange} size="large" />
         </div>
       </div>
-      <button onClick={() => window.location.assign('/summary')}>Next</button>
+      <StepButtons prev="hours" next="summary" />
     </div>
   )
 }

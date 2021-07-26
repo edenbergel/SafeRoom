@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Booking from '../Booking/Booking';
+import Confirmation from '../Booking/Confirmation';
 import Dates from '../Booking/Dates';
 import Hours from '../Booking/Hours';
 import Summary from '../Booking/Summary';
@@ -28,6 +29,8 @@ function ContentUser() {
         return <Booking />;
       case '/summary':
         return <Summary />;
+      case '/confirmation':
+        return <Confirmation />;
       case '/salles/' + idSalle:
         return <Salle id={idSalle} />;
     }

@@ -3,6 +3,7 @@ import './hours.scss';
 import { TimePicker } from 'antd';
 import 'antd/dist/antd.css';
 import moment from "moment";
+import StepButtons from '../StepButtons/StepButtons';
 
 function Hours() {
   const disabledHours = [0, 1, 2, 3, 4, 5, 6, 7, 20, 21, 22, 23];
@@ -29,7 +30,7 @@ function Hours() {
         <TimePicker format="hh:mm" onChange={onTimeStart} disabledHours={() => disabledHours} hideDisabledOptions={true} minuteStep={30} size="large"/>
         <TimePicker format="hh:mm" onChange={onTimeEnd} disabledHours={() => disabledHours} hideDisabledOptions={true} minuteStep={30} size="large"/>
       </div>
-      <button onClick={() => window.location.assign('/seats')}>Next</button>
+      <StepButtons prev="booking" next="seats" />
     </div>
   );
 }

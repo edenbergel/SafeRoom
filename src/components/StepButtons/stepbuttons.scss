@@ -1,0 +1,33 @@
+@import '../../css/styles.scss';
+
+.step_buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5rem;
+
+  button {
+    font-family: $primaryFont;
+    color: $purple;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    &::before, &::after {
+      font-size: 1.5rem;
+    }
+
+    &.step_buttons_prev::before {
+      content: "\27F5";
+      margin-right: 1rem;
+    }
+
+    &.step_buttons_next::after {
+      content: "\27F6";
+      margin-left: 1rem;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
