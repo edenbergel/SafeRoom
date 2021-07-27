@@ -1,8 +1,8 @@
 @import '../../css/var/var.scss';
 
 .SalleItem{
-  height: 170px;
-  width: 170px;
+  height: 200px;
+  width: 200px;
   background: #FFF;
   border-radius: 14px;
   margin: 0 15px;
@@ -10,6 +10,9 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  color: $purple;
+  text-align: center;
+  font-weight: 600;
   >div:first-child{
     height: 7px;
     width: 7px;

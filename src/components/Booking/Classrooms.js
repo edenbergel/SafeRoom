@@ -1,4 +1,4 @@
-//import './Classroom.scss';
+import './classrooms.scss';
 import SalleItem from '../Dashboard/SalleItem';
 import Floor from '../Dashboard/Floor';
 
