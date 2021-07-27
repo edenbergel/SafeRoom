@@ -4,7 +4,7 @@ import './summary.scss';
 
 const axios = require("axios");
 
-function Summary() {
+function Summary(props) {
   let recapSeatsArray = [];
 
   for (var i = 0; i < localStorage.getItem("nbSeatSelected"); i++) {
@@ -62,7 +62,7 @@ function Summary() {
         </button>
       </div>
 
-      <StepButtons prev="seats" next={null} />
+      <StepButtons prev={"seats/" + props.id} next={null} />
     </div>
   );
 }

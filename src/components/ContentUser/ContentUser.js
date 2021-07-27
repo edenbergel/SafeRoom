@@ -3,7 +3,6 @@ import Booking from '../Booking/Booking';
 import Classrooms from '../Booking/Classrooms';
 import Confirmation from '../Booking/Confirmation';
 import Dates from '../Booking/Dates';
-import Hours from '../Booking/Hours';
 import Summary from '../Booking/Summary';
 import Calendar from '../Calendar/Calendar';
 import Dashboard from '../Dashboard/Dashboard';
@@ -26,8 +25,6 @@ function ContentUser() {
         return <Classrooms id={idSalle}/>;
       case '/booking/' + idSalle:
         return <Dates id={idSalle} />;
-      case '/hours/' + idSalle:
-        return <Hours id={idSalle} />;
       case '/seats/' + idSalle:
         return <Booking id={idSalle} />;
       case '/summary/' + idSalle:

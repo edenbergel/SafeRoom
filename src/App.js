@@ -5,7 +5,7 @@ import {
   Route
 } from "react-router-dom";
 
-import './App.scss';
+import './App.scss'
 
 import SignUp from "./components/SignUp/SignUp";
 import ContentUser from "./components/ContentUser/ContentUser";
@@ -26,9 +26,6 @@ function App() {
               <ContentUser />
             </Route>
             <Route path="/seats/:id">
-              <ContentUser />
-            </Route>
-            <Route path="/hours/:id">
               <ContentUser />
             </Route>
             <Route path="/dashboard">

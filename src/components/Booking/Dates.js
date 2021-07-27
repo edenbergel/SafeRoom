@@ -34,7 +34,7 @@ function Dates(props) {
         prev2Label={null}
         next2Label={null}
       />
-      <StepButtons prev={null} next={"hours/" + props.id}/>
+      <StepButtons prev={null} next={"seats/" + props.id}/>
     </div>
   );
 }
