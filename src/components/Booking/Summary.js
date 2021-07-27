@@ -1,4 +1,5 @@
 import React from 'react';
+import Message from '../ContentUser/Message';
 import StepButtons from '../StepButtons/StepButtons';
 import './summary.scss';
 
@@ -31,7 +32,11 @@ function Summary(props) {
       title: summary.title,
     };
     axios
-      .post("https://saferoom-hetic.herokuapp.com/bookings", summaryData)
+      .post("https://saferoom-hetic.herokuapp.com/bookings", summaryData, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+        }
+      })
       .then(function (response) {
         redirectToConfirmation();
       })
@@ -46,6 +51,7 @@ function Summary(props) {
 
   return (
     <div className="summary padding_content">
+      <Message title="Bonjour Léa 👋" text="Bienvenue sur la platform de réservation de salle." step="4/5 : Choisissez une salle" />
       <div className="summary_wrapper">
         <h1>Récapitulatif de votre réservation</h1>
         <div><p>Date</p> {localStorage.getItem("selectedDate")}</div>
@@ -54,7 +60,7 @@ function Summary(props) {
 
         <button
           type="submit"
-          className="summary_btn"
+          className="primary_btn"
           onClick={sendDetailsToServer}
         >
           Valider

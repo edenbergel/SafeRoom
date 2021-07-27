@@ -17,18 +17,32 @@
 }
 
 .seats__inner {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  border: 1px solid $lightBlue;
-  padding: 2rem 0;
+  border: 1px solid $lightPurple;
+  padding: 2rem;
+  margin: 5rem 1rem 0;
+  text-align: center;
 
+  @media screen and (min-width: 1024px) {
+    margin: 2rem 2.8125rem 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem auto;
+  }
+  
   .seats {
     display: flex;
-    width: 39%;
-    flex-wrap: wrap;
+    width: 100%;
     justify-content: space-between;
-  
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+
+    @media screen and (min-width: 1024px) {
+      width: 39%;
+      flex-wrap: unset;
+      margin-bottom: 0;
+    }
+    
     .seat__item {
       background-color: $lightBlue;
       width: fit-content;

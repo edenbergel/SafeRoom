@@ -19,8 +19,8 @@ function SideBar(props) {
         <ElementMenu name="Calendrier" id="calendar" />
         <ElementMenu name="Tableau de bord" id="dashboard" />
       </div>
-      <div class="deco" onClick={disconnect}>
-        <div class="sign">
+      <div className="deco" onClick={disconnect}>
+        <div className="sign">
           <svg
             id="Composant_17_4"
             data-name="Composant 17 – 4"

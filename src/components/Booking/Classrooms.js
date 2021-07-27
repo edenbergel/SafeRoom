@@ -4,6 +4,7 @@ import Floor from '../Dashboard/Floor';
 
 import React, {useState, useEffect} from 'react';
 import {Link} from "react-router-dom";
+import Message from '../ContentUser/Message';
 const axios = require('axios');
 
 function Classroom() {
@@ -12,7 +13,11 @@ function Classroom() {
   const [salles, setSalles] = useState([]);
 
   useEffect(()=>{
-    axios.get(`https://saferoom-hetic.herokuapp.com/salles`)
+    axios.get(`https://saferoom-hetic.herokuapp.com/salles`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      }
+    })
     .then(function (response) {
       setSalles(response.data)
     })
@@ -31,6 +36,11 @@ function Classroom() {
 
   return (
     <div className='Classroom padding_content'>
+      <Message title="Bonjour Léa 👋" text="Bienvenue sur la platform de réservation de salle." step="1/5 : Choisissez une salle" />
+      <div className='Classroom_floors'>
+        <Floor name='Étage 1' floor={1} floorSelected={floor} func={isSelected} />
+        <Floor name='Rez de chaussée' floor={0} floorSelected={floor} func={isSelected} />
+      </div>
       <div className='Classroom_salles'>
         {salles.map((salle, i)=>{
           const placesAvailable = Math.floor(salle.area / 4) - salle.placeTaken;
@@ -38,10 +48,6 @@ function Classroom() {
             salle.step == floor && placesAvailable > 0 ? <Link to={'/booking/' + salle.id} key={i}> <SalleItem key={i} name={salle.name} id={salle.id} placesAvailable={Math.floor(salle.area / 4)} id={salle.id} placesTaken={salle.placeTaken} /></Link> : ''
           );
         })}
-      </div>
-      <div className='Classroom_floors'>
-        <Floor name='Étage 1' floor={1} floorSelected={floor} func={isSelected} />
-        <Floor name='Rez de chaussée' floor={0} floorSelected={floor} func={isSelected} />
       </div>
     </div>
   );

@@ -1,9 +1,25 @@
 .Classroom_salles{
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 5rem 1rem 0;
+
+  @media screen and (min-width: 375px) {
+    justify-content: space-between;
+  }
+  
+  @media screen and (min-width: 1024px) {
+    margin: 2rem 2.8125rem 0;
+    justify-content: left;
+  }
 }
 
 .Classroom_floors{
-  position: absolute;
-  bottom: 30px;
-  right: 0;
+  margin-top: 3rem;
+  @media screen and (min-width: 1024px) {
+    position: absolute;
+    bottom: 30px;
+    right: 0;
+    margin-top: 0;
+  }
 }

@@ -2,10 +2,9 @@
 
 .SalleItem{
   height: 200px;
-  width: 200px;
+  width: 100%;
   background: $lightBlue;
   border-radius: 14px;
-  margin: 0 15px;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -13,6 +12,17 @@
   color: $purple;
   text-align: center;
   font-weight: 600;
+  margin-bottom: 2rem;
+
+  @media screen and (min-width: 375px) {
+    width: 43vw;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 200px;
+    margin: 0 15px;
+  }
+
   >div:first-child{
     height: 7px;
     width: 7px;

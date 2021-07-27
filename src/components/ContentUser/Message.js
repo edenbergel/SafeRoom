@@ -7,6 +7,7 @@ function Message(props) {
     <div className='Message'>
       <h2>{props.title}</h2>
       <p>{props.text}</p>
+      <p>{props.step}</p>
     </div>
   );
 }

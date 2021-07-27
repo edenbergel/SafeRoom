@@ -3,7 +3,11 @@
 .step_buttons {
   display: flex;
   justify-content: space-between;
-  margin-top: 5rem;
+  margin: 2rem 1rem;
+
+  @media screen and (min-width: 1024px) {
+    margin: 5rem 2.8125rem 0;
+  }
 
   &.step_buttons_only {
     justify-content: flex-end;
@@ -14,21 +18,36 @@
     color: $purple;
     border: none;
     background-color: transparent;
+    display: flex;
+
+    @media screen and (min-width: 1024px) {
+      display: block;
+    }
 
     &:not([disabled]) {
       cursor: pointer;
     }
 
     &::before, &::after {
-      font-size: 1.5rem;
+      font-size: 1rem;
+
+      @media screen and (min-width: 1024px) {
+        font-size: 1.5rem;
+      }
     }
 
-    &.step_buttons_prev::before {
-      content: "\27F5";
-      margin-right: 1rem;
+    &.step_buttons_prev {
+      text-align: left;
+
+      &::before {
+        content: "\27F5";
+        margin-right: 1rem;
+      }
     }
 
     &.step_buttons_next {
+      text-align: right;
+
       &[disabled] {
         color: $grey;
       }

@@ -72,7 +72,7 @@ function SignUp(props) {
                   onChange={handleChange}
                 />
                 <button type="submit">Connexion</button>
-                {error ? <div class="error">{error}</div> : ""}
+                {error ? <div className="error">{error}</div> : ""}
                 {connected === true ? (
                   <Redirect
                     to={{
