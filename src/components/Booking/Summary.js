@@ -1,65 +1,82 @@
-import React, {useState} from 'react';
-import StepButtons from '../StepButtons/StepButtons';
-import './summary.scss';
+import React, { useState } from "react";
+import StepButtons from "../StepButtons/StepButtons";
+import "./summary.scss";
 
-const axios = require('axios');
+const axios = require("axios");
 
 function Summary() {
-
   let recapSeatsArray = [];
-  
+
   for (var i = 0; i < localStorage.getItem("nbSeatSelected"); i++) {
-    recapSeatsArray.push(<div className="seat__item seat__item-active" key={i}></div>)
+    recapSeatsArray.push(
+      <div className="seat__item seat__item-active" key={i}></div>
+    );
   }
 
   const summary = {
     title: null,
-    //start: "2021-07-26T16:48:33.911Z",
-    //end: "2021-07-26T16:48:33.911Z",
+    start: localStorage.getItem("selectedDateInitial"),
+    end: localStorage.getItem("selectedDateInitial"),
     nb_places: localStorage.getItem("nbSeatSelected"),
-    user: null
-  }
+    user: null,
+  };
 
-  console.log(summary.end, summary.start);
   const sendDetailsToServer = (e) => {
-    e.preventDefault()
-      const summaryData = {
-        "user": summary.user,
-        "start": "2021-07-30T16:48:33.911Z",
-        "end": "2021-07-30T17:48:33.911Z",
-        "nb_places": summary.nb_places,
-        "title": summary.title,
-      }
-      console.log(summaryData);
-      axios.post('https://saferoom-hetic.herokuapp.com/reservations', summaryData)
+    e.preventDefault();
+    const summaryData = {
+      user: "teddy",
+      start: summary.start,
+      end: summary.end,
+      nb_places: summary.nb_places,
+      title: "title1",
+    };
+    axios
+      .post("https://saferoom-hetic.herokuapp.com/bookings", summaryData)
       .then(function (response) {
-        console.log(response);
-        redirectToConfirmation()
+        redirectToConfirmation();
       })
       .catch(function (error) {
         console.log(error);
-      })
-  }
+      });
+  };
 
   const redirectToConfirmation = () => {
-    window.location.assign('/confirmation');
-  } 
+    window.location.assign("/confirmation");
+  };
 
   return (
     <div className="summary">
       <div className="summary_wrapper">
         <h1>Récapitulatif de votre réservation</h1>
-        <div><p>Date</p> {localStorage.getItem("selectedDate")}</div>
-        <div><p>Horaires</p> {localStorage.getItem("selectedTimeStart")}h à {localStorage.getItem("selectedTimeEnd")}h</div>
-        <div><p>Salle</p> </div>
-        <div className="seats"><p>{localStorage.getItem("nbSeatSelected") > 1 ? 'Places' : 'Place' }</p> {recapSeatsArray}</div>
+        <div>
+          <p>Date</p> {localStorage.getItem("selectedDate")}
+        </div>
+        <div>
+          <p>Horaires</p> {localStorage.getItem("selectedTimeStart")}h à
+          {localStorage.getItem("selectedTimeEnd")}h
+        </div>
+        <div>
+          <p>Salle</p>
+        </div>
+        <div className="seats">
+          <p>
+            {localStorage.getItem("nbSeatSelected") > 1 ? "Places" : "Place"}
+          </p>
+          {recapSeatsArray}
+        </div>
 
-        <button type="submit" className="summary_btn" onClick={sendDetailsToServer}>Valider</button>
+        <button
+          type="submit"
+          className="summary_btn"
+          onClick={sendDetailsToServer}
+        >
+          Valider
+        </button>
       </div>
-      
+
       <StepButtons prev="seats" next={null} />
     </div>
-  )
+  );
 }
 
 export default Summary;

@@ -1,43 +1,42 @@
-import React, {useState} from 'react';
-import Booking from '../Booking/Booking';
-import Confirmation from '../Booking/Confirmation';
-import Dates from '../Booking/Dates';
-import Hours from '../Booking/Hours';
-import Summary from '../Booking/Summary';
-import Calendar from '../Calendar/Calendar';
-import Dashboard from '../Dashboard/Dashboard';
-import Salle from '../Dashboard/Salle';
-import SideBar from '../SideBar/SideBar';
+import React, { useState } from "react";
+import Booking from "../Booking/Booking";
+import Confirmation from "../Booking/Confirmation";
+import Dates from "../Booking/Dates";
+import Hours from "../Booking/Hours";
+import Summary from "../Booking/Summary";
+import Calendar from "../Calendar/Calendar";
+import Dashboard from "../Dashboard/Dashboard";
+import Salle from "../Dashboard/Salle";
+import SideBar from "../SideBar/SideBar";
 
-import './contentuser.scss';
+import "./contentuser.scss";
 
 function ContentUser() {
+  const idSalle = localStorage.getItem("idSalle");
 
-  const idSalle = localStorage.getItem('idSalle');
-
-  const renderSwitch = (param)=>{
-    switch(param){
-      case '/dashboard':
+  const renderSwitch = (param) => {
+    switch (param) {
+      case "/dashboard":
         return <Dashboard />;
-      case '/calendar':
+      case "/calendar":
         return <Calendar />;
-      case '/booking':
+      case "/booking":
         return <Dates />;
-      case '/hours':
+      case "/hours":
         return <Hours />;
-      case '/seats':
+      case "/seats":
         return <Booking />;
-      case '/summary':
+      case "/summary":
         return <Summary />;
-      case '/confirmation':
+      case "/confirmation":
         return <Confirmation />;
-      case '/salles/' + idSalle:
+      case "/salles/" + idSalle:
         return <Salle id={idSalle} />;
     }
-  }
+  };
 
   return (
-    <div className='ContentUser'>
+    <div className="ContentUser">
       <SideBar />
       <div className="ContentUser_content">
         {renderSwitch(window.location.pathname)}

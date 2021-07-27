@@ -1,17 +1,11 @@
-import React, {useState} from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "./App.scss";
 
-import './App.scss';
-
-import SignUp from './components/SignUp/SignUp';
-import ContentUser from './components/ContentUser/ContentUser';
+import SignUp from "./components/SignUp/SignUp";
+import ContentUser from "./components/ContentUser/ContentUser";
 
 function App() {
-
   return (
     <div className="App">
       <Router>
