@@ -5,6 +5,7 @@ import AddSalle from './AddSalle';
 
 import React, {useState, useEffect} from 'react';
 import {Link} from "react-router-dom";
+import Message from '../ContentUser/Message';
 const axios = require('axios');
 
 function Dashboard(props) {
@@ -26,7 +27,7 @@ function Dashboard(props) {
       console.log(error);
     })
 
-    
+
   }, [])
 
   const isSelected = (value)=>{
@@ -43,6 +44,7 @@ function Dashboard(props) {
 
   return (
     <div className='Dashboard'>
+      <Message title="Bonjour Léa 👋" text="Bienvenue sur votre tableau de bord" />
       <div className='Dashboard_salles'>
         {salles.map((salle, i)=>{
           return(

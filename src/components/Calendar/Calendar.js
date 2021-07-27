@@ -4,6 +4,7 @@ import moment from 'moment';
 
 import './calendar.scss'
 import ModalBooking from '../Calendar/ModalBooking';
+import Message from '../ContentUser/Message';
 const axios = require('axios');
 
 const localizer = momentLocalizer(moment);
@@ -38,6 +39,7 @@ function CalendarGlobal() {
 
   return (
     <div>
+      <Message title="Bonjour Léa 👋" text="Voici le calendrier de vos réservations" />
       <Calendar
         localizer={localizer}
         events={bookings}
