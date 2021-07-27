@@ -24,7 +24,7 @@ function Dates(props) {
   },[changeDate])
 
   return (
-    <div className="Calendar">
+    <div className="Calendar padding_content">
       <Calendar
         onChange={changeDate}
         value={dateState}

@@ -56,6 +56,8 @@ function Dashboard(props) {
         <Floor name='Étage 1' floor={1} floorSelected={floor} func={isSelected} />
         <Floor name='Rez de chaussée' floor={0} floorSelected={floor} func={isSelected} />
       </div>
+
+      <div className={addSalle ? "shade active" : "shad"}></div>
     </div>
   );
 }

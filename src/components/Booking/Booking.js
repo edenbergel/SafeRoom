@@ -50,7 +50,7 @@ function Booking(props) {
   },[]);
 
   return (
-    <div className="seats__container">
+    <div className="seats__container padding_content">
       <div className="seats__inner">
         <div className="seats">
           {placesAvailableArray}

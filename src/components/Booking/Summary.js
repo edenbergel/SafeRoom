@@ -45,7 +45,7 @@ function Summary(props) {
   };
 
   return (
-    <div className="summary">
+    <div className="summary padding_content">
       <div className="summary_wrapper">
         <h1>Récapitulatif de votre réservation</h1>
         <div><p>Date</p> {localStorage.getItem("selectedDate")}</div>
