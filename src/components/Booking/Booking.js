@@ -4,6 +4,7 @@ import { InputNumber } from 'antd';
 import './booking.scss';
 import 'antd/dist/antd.css';
 import StepButtons from '../StepButtons/StepButtons';
+import Message from '../ContentUser/Message';
 
 const axios = require('axios');
 
@@ -51,6 +52,7 @@ function Booking(props) {
 
   return (
     <div className="seats__container padding_content">
+      <Message title="Bonjour Léa 👋" text="Bienvenue sur la platform de réservation de salle." step="3/5 : Choisissez une salle" />
       <div className="seats__inner">
         <div className="seats">
           {placesAvailableArray}

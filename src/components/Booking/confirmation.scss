@@ -2,18 +2,18 @@
 
 .confirmation {
   margin: auto;
-  width: fit-content;
 
   h1 {
     font-family: $primaryFont;
     color: $purple;
     font-size: 1.25rem;
-    margin-bottom: 5rem;
+    margin: 10rem 0 5rem;
+    text-align: center;
   }
 
   .confirmation_icon {
     width: fit-content;
-    margin: auto;
+    margin: auto auto 5rem;
     
     &::before {
       content: "\2713";

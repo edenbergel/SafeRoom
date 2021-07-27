@@ -30,18 +30,6 @@
       font-family: $primaryFont;
     }
   }
-
-  button{
-    background: $purple;
-    border: none;
-    color: #FFF;
-    border-radius: 14px;
-    padding: 10px;
-    font-weight: 600;
-    &:hover{
-      cursor: pointer;
-    }
-  }
 }
 
 .AddSalle_close{

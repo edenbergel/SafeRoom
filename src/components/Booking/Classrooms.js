@@ -4,6 +4,7 @@ import Floor from '../Dashboard/Floor';
 
 import React, {useState, useEffect} from 'react';
 import {Link} from "react-router-dom";
+import Message from '../ContentUser/Message';
 const axios = require('axios');
 
 function Classroom() {
@@ -31,6 +32,7 @@ function Classroom() {
 
   return (
     <div className='Classroom padding_content'>
+      <Message title="Bonjour Léa 👋" text="Bienvenue sur la platform de réservation de salle." step="1/5 : Choisissez une salle" />
       <div className='Classroom_salles'>
         {salles.map((salle, i)=>{
           const placesAvailable = Math.floor(salle.area / 4) - salle.placeTaken;

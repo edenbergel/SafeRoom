@@ -2,7 +2,7 @@
 
 .summary_wrapper {
   width: fit-content;
-  margin: auto;
+  margin: 5rem auto 0;
   font-family: $primaryFont;
 
   h1 {
@@ -56,24 +56,24 @@
       }
     }
   }
+}
 
-  .summary_btn {
-    background-color: $purple;
-    border: 1px solid $purple;
-    color: #fff;
-    border-radius: 10px;
-    padding: 1rem 5rem;
-    display: flex;
-    margin: auto;
-    font-weight: 600;
-    letter-spacing: 1px;
-    transition: ease-out 0.4s;
-    cursor: pointer;
+.primary_btn {
+  background-color: $purple;
+  border: 1px solid $purple;
+  color: #fff;
+  border-radius: 10px;
+  padding: 1rem 5rem;
+  display: flex;
+  margin: auto;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: ease-out 0.4s;
+  cursor: pointer;
 
-    &:hover {
-      background-color: #fff;
-      color: $purple;
-      box-shadow: inset 400px 0 0 0 #fff;
-    }
+  &:hover {
+    background-color: #fff;
+    color: $purple;
+    box-shadow: inset 400px 0 0 0 #fff;
   }
 }

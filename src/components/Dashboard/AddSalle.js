@@ -95,7 +95,7 @@ function AddSalle(props) {
           value={salle.placeTaken} 
           onChange={handleChange}
         />
-        <button type="submit">Ajouter</button>
+        <button type="submit" className="primary_btn">Ajouter</button>
       </form>
     </div>
   );

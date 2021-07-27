@@ -8,6 +8,7 @@ import './dates.scss';
 import moment from "moment";
 import 'moment/locale/fr';
 import StepButtons from '../StepButtons/StepButtons';
+import Message from '../ContentUser/Message';
 
 function Dates(props) {
   const [dateState, setDateState] = useState(new Date());
@@ -25,6 +26,7 @@ function Dates(props) {
 
   return (
     <div className="Calendar padding_content">
+      <Message title="Bonjour Léa 👋" text="Bienvenue sur la platform de réservation de salle." step="2/5 : Choisissez une salle" />
       <Calendar
         onChange={changeDate}
         value={dateState}

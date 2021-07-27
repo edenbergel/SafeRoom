@@ -53,7 +53,7 @@ function Dashboard(props) {
         })}
       </div>
       <AddSalle visible={addSalle} changeVisibility={changeVisibility} />
-      <p className='Dashboard_button' onClick={viewForm}>Ajouter une salle</p>
+      <button className='primary_btn' onClick={viewForm}>Ajouter une salle</button>
       <div className='Dashboard_floors'>
         <Floor name='Étage 1' floor={1} floorSelected={floor} func={isSelected} />
         <Floor name='Rez de chaussée' floor={0} floorSelected={floor} func={isSelected} />

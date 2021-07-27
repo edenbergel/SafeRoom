@@ -1,0 +1,79 @@
+@import '../../css/styles.scss';
+
+.hours {
+  margin: auto;
+
+  .hours_wrapper {
+    width: 25%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+
+    input::placeholder, input {
+      color: $purple;
+      font-family: $primaryFont;
+      font-size: .8rem;
+    }
+  }
+
+  // .timeslots {
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: center;
+  //   max-width: 30%;
+
+  //   .timeslots__wrapper {
+  //     display: flex;
+  //     justify-content: space-between;
+
+  //     &:first-of-type {
+  //       margin-bottom: 3rem;
+  //     }
+  //   }
+  // }
+
+  .ant-picker {
+    background-color: $lightBlue;
+    border-color: $lightBlue;
+    border-radius: 14px;
+
+    &.ant-picker:hover, &.ant-picker-focused {
+      border-color: $purple;
+    }
+    
+    .ant-picker-clear {
+      background-color: transparent;
+    }
+  }
+}
+
+.ant-picker-panel-container {
+  background-color: $lightBlue !important;
+  border-radius: 14px !important;
+
+  .ant-picker-time-panel {
+    width: 7vw;
+
+    .ant-picker-time-panel-cell-inner {
+      background-color: transparent !important;
+      color: $purple !important;
+      font-family: $primaryFont;
+    }
+  }
+
+  .ant-btn-primary {
+    border: none;
+
+    &:not([disabled]) {
+      background-color: $purple;
+    }
+  }
+
+  .ant-picker-now-btn, .ant-btn-primary span {
+    font-family: $primaryFont;
+  }
+  
+  .ant-picker-now-btn {
+    color: $purple;
+  }
+}
