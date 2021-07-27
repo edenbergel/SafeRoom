@@ -1,0 +1,75 @@
+@import '../../css/styles.scss';
+
+.modalBooking {
+  font-family: $primaryFont;
+
+  .modalBooking_wrapper {
+    background-color: #fff;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 15vw;
+    padding: 2rem;
+    z-index: 5;
+    transform: translateX(100%);
+    transition: all .5s ease-in-out;
+  }
+
+  &.active {
+    .modalBooking_wrapper {
+      transform: translateX(0);
+    }
+
+    .shade {
+      opacity: 1;
+      z-index: 4;
+    }
+  }
+
+  h3 {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: 2rem 0;
+  }
+
+  .modalBooking_date {
+    text-transform: capitalize;
+    padding-bottom: 1rem;
+  }
+
+  .modalBooking_info_wrap {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+
+  .modalBooking_class, .modalBooking_date {
+    color: $purple;
+  }
+
+  .modalBooking_class {
+    border-bottom: 2px solid $purple;
+    line-height: 2;
+    width: 3rem;
+  }
+
+  .modalBooking_close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+}
+
+.shade {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #00000085;
+  opacity: 0;
+  z-index: -1;
+  transition: all .5s ease-in;
+}

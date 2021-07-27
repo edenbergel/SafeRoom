@@ -3,6 +3,7 @@ import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 
 import './calendar.scss'
+import ModalBooking from '../Calendar/ModalBooking';
 const axios = require('axios');
 
 const localizer = momentLocalizer(moment);
@@ -12,6 +13,8 @@ const formats = {
 
 function CalendarGlobal() {
   const [bookings, setBookings] = useState([]);
+  const [modalBooking, setModalBooking] = useState(false);
+  const [bookingInfo, setBookingInfo] = useState();
 
   useEffect(() => {
     axios
@@ -23,7 +26,15 @@ function CalendarGlobal() {
       console.log(error);
     });
   }, [])
-    
+
+  const changeVisibility = ()=>{
+    setModalBooking(false);
+  }
+
+  const idReservation = (value)=>{
+    setBookingInfo(value.id);
+    setModalBooking(true);
+  }
 
   return (
     <div>
@@ -32,9 +43,24 @@ function CalendarGlobal() {
         events={bookings}
         startAccessor="start"
         endAccessor="end"
-        style={{ height: 500 }}
+        style={{ height: 700 }}
         formats={formats}
+        getDrilldownView={() =>
+          { return null; }
+        }
+        onSelectEvent={idReservation}
       />
+
+      {
+        bookings.map((booking, i)=>{
+          return( booking.id === bookingInfo ? 
+            
+            <ModalBooking key={i} visible={modalBooking} changeVisibility={changeVisibility} date={booking.start} title={booking.title} nbPlaces={booking.nb_places} /> 
+            : ""
+          );
+        })
+      }
+      
     </div>
   )
 }
