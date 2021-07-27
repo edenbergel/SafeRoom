@@ -13,11 +13,12 @@ import SideBar from '../SideBar/SideBar';
 import "./contentuser.scss";
 
 function ContentUser() {
+
   const idSalle = localStorage.getItem("idSalle");
 
-  const renderSwitch = (param) => {
-    switch (param) {
-      case "/dashboard":
+  const renderSwitch = (param)=>{
+    switch(param){
+      case '/dashboard':
         return <Dashboard />;
       case "/calendar":
         return <Calendar />;
