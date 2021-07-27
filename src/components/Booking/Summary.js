@@ -2,14 +2,15 @@ import React from 'react';
 import StepButtons from '../StepButtons/StepButtons';
 import './summary.scss';
 
-const axios = require('axios');
+const axios = require("axios");
 
 function Summary() {
-
   let recapSeatsArray = [];
-  
+
   for (var i = 0; i < localStorage.getItem("nbSeatSelected"); i++) {
-    recapSeatsArray.push(<div className="seat__item seat__item-active" key={i}></div>)
+    recapSeatsArray.push(
+      <div className="seat__item seat__item-active" key={i}></div>
+    );
   }
 
   const summary = {
@@ -40,8 +41,8 @@ function Summary() {
   };
 
   const redirectToConfirmation = () => {
-    window.location.assign('/confirmation');
-  } 
+    window.location.assign("/confirmation");
+  };
 
   return (
     <div className="summary">
@@ -52,12 +53,18 @@ function Summary() {
         <div><p>Salle</p> {localStorage.getItem('idSalleName')}</div>
         <div className="seats"><p>{localStorage.getItem("nbSeatSelected") > 1 ? 'Places' : 'Place' }</p> {recapSeatsArray}</div>
 
-        <button type="submit" className="summary_btn" onClick={sendDetailsToServer}>Valider</button>
+        <button
+          type="submit"
+          className="summary_btn"
+          onClick={sendDetailsToServer}
+        >
+          Valider
+        </button>
       </div>
-      
+
       <StepButtons prev="seats" next={null} />
     </div>
-  )
+  );
 }
 
 export default Summary;

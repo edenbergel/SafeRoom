@@ -25,6 +25,8 @@ function Dashboard(props) {
     .catch(function (error) {
       console.log(error);
     })
+
+    
   }, [])
 
   const isSelected = (value)=>{

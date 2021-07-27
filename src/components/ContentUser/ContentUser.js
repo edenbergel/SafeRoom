@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Booking from '../Booking/Booking';
 import Classrooms from '../Booking/Classrooms';
 import Confirmation from '../Booking/Confirmation';
@@ -10,18 +10,17 @@ import Dashboard from '../Dashboard/Dashboard';
 import Salle from '../Dashboard/Salle';
 import SideBar from '../SideBar/SideBar';
 
-import './contentuser.scss';
+import "./contentuser.scss";
 
 function ContentUser() {
 
-  const idSalle = localStorage.getItem('idSalle');
-  const [visibility, setVisibility] = useState(false);
+  const idSalle = localStorage.getItem("idSalle");
 
   const renderSwitch = (param)=>{
     switch(param){
       case '/dashboard':
         return <Dashboard />;
-      case '/calendar':
+      case "/calendar":
         return <Calendar />;
       case '/classrooms':
         return <Classrooms id={idSalle}/>;
@@ -35,13 +34,13 @@ function ContentUser() {
         return <Summary id={idSalle} />;
       case '/confirmation':
         return <Confirmation />;
-      case '/salles/' + idSalle:
+      case "/salles/" + idSalle:
         return <Salle id={idSalle} />;
     }
-  }
+  };
 
   return (
-    <div className='ContentUser'>
+    <div className="ContentUser">
       <SideBar />
       <div className="ContentUser_content">
         {renderSwitch(window.location.pathname)}

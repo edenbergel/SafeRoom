@@ -1,20 +1,20 @@
-@import '../../css/var/var.scss';
+@import "../../css/var/var.scss";
 
-.SignUp{
+.SignUp {
   display: flex;
-  >div{
+  > div {
     width: 50%;
     height: 100vh;
-    &:last-child{
+    &:last-child {
       background: $purple;
       display: flex;
       align-items: center;
-      img{
+      img {
         width: 100%;
       }
     }
   }
-  h1{
+  h1 {
     color: $purple;
     font-size: 44px;
     font-weight: 600;
@@ -23,44 +23,69 @@
   }
 }
 
-.SignUp_form{
+.SignUp_form {
   max-width: 500px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   height: 100%;
-  form{
+  form {
     display: flex;
     flex-direction: column;
     padding-bottom: 20vh;
   }
-  label{
+  label {
     color: $grey;
     font-weight: 600;
     margin-top: 30px;
   }
-  input{
+  input {
     padding: 15px;
     border-radius: 10px;
-    border: 1px solid #E6E6E6;
+    border: 1px solid #e6e6e6;
     font-family: $primaryFont;
     box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
     margin-top: 15px;
-    &::placeholder{
+    &::placeholder {
       font-family: $primaryFont;
     }
   }
-  button{
+  button {
     width: 100%;
     background: $purple;
     border: none;
-    color: #FFF;
+    color: #fff;
     border-radius: 10px;
     padding: 15px;
     font-weight: 600;
     font-size: 18px;
+    cursor: pointer;
     margin-top: 50px;
     font-family: $primaryFont;
   }
+}
+
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+}
+.error {
+  padding: 20px;
+  background: #ff7474;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 30px;
+  color: white;
+  font-weight: 600;
+  font-family: $primaryFont;
+  animation: appear 700ms;
 }
