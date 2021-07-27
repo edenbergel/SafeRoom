@@ -1,21 +1,8 @@
 import React, {useState, useEffect} from 'react';
-
+import {dispoSalle} from './dispoSalle'
 import './salleitem.scss';
 
 function SalleItem(props) {
-
-  const colorSalle = (placesAvailable, placesTaken)=>{
-    const demi = placesAvailable/2;
-    if(placesTaken < demi){
-      return 'green';
-    }
-    if(demi <= placesTaken &&  placesTaken < (demi*2)) {
-      return 'orange';
-    }
-    if(placesTaken === (demi*2)){
-      return 'red'
-    };
-  }
 
   const passId = ()=>{
     localStorage.setItem('idSalle', props.id);
@@ -23,7 +10,7 @@ function SalleItem(props) {
 
   return (
     <div className='SalleItem' onClick={passId}>
-      <div className={colorSalle(props.placesAvailable, props.placesTaken)}></div>
+      <div className={dispoSalle(props.placesAvailable, props.placesTaken)}></div>
       <p>{props.name}</p>
       <p>{props.placesAvailable - props.placesTaken} places restantes</p>
     </div>

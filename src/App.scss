@@ -1,5 +1,9 @@
 @import './css/styles.scss';
 
 body{
-  font-family: $primaryFont;
+  font-family: $primaryFont !important;
+}
+
+p{
+  margin-bottom: 0 !important;
 }

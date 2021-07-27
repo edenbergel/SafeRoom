@@ -1,11 +1,33 @@
+@import '../../css/var/var.scss';
+
 .Dashboard_salles{
   height: 70vh;
   padding: 30px;
   display: flex;
+  >a{
+    height: 170px;
+  }
 }
 
 .Dashboard_floors{
   position: absolute;
   bottom: 30px;
   right: 0;
+}
+
+.Dashboard_button{
+  width: 200px;
+  background: $purple;
+  color: #FFF;
+  padding: 10px;
+  border-radius: 14px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+  position: absolute;
+  bottom: 50px;
+  left: calc(50% - 100px);
+  &:hover{
+    cursor: pointer;
+  }
 }
