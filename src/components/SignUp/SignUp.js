@@ -44,7 +44,7 @@ function SignUp(props) {
       {localStorage.getItem("jwt") ? (
         <Redirect
           to={{
-            pathname: "/booking",
+            pathname: "/dashboard",
           }}
         />
       ) : (
@@ -74,7 +74,7 @@ function SignUp(props) {
                 {connected === true ? (
                   <Redirect
                     to={{
-                      pathname: "/booking",
+                      pathname: "/dashboard",
                     }}
                   />
                 ) : (
