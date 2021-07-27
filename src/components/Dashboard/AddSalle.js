@@ -35,7 +35,11 @@ function AddSalle(props) {
         "placeTaken": salle.placeTaken
       }
 
-      axios.post('https://saferoom-hetic.herokuapp.com/salles', salleData)
+      axios.post('https://saferoom-hetic.herokuapp.com/salles', salleData, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+        }
+      })
       .then(function (response) {
         props.changeVisibility(false);
       })

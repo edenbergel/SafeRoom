@@ -32,7 +32,6 @@ function Dates(props) {
         value={dateState}
         locale="fr-FR"
         tileDisabled={({ date }) => date.getDay() === 6 || date.getDay() === 0 }
-        formatShortWeekday={(locale, date) => moment(date).locale("fr").format("dddd")}
         prev2Label={null}
         next2Label={null}
       />

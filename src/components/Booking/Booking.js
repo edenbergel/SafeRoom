@@ -41,7 +41,11 @@ function Booking(props) {
   }
 
   useEffect(() => {
-    axios.get(`https://saferoom-hetic.herokuapp.com/salles/${props.id}`)
+    axios.get(`https://saferoom-hetic.herokuapp.com/salles/${props.id}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      }
+    })
     .then(function (response) {
       setData(response.data);
     })

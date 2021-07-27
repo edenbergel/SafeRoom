@@ -2,14 +2,19 @@
 
 .summary_wrapper {
   width: fit-content;
-  margin: 5rem auto 0;
+  margin: 5rem 1rem 0;
   font-family: $primaryFont;
+
+  @media screen and (min-width: 768px) {
+    margin: 5rem auto 0;
+  }
 
   h1 {
     color: $purple;
     font-weight: 600;
     font-size: 1.25rem;
     margin-bottom: 3rem;
+    text-align: center;
   }
 
   div {

@@ -6,9 +6,13 @@
   h1 {
     font-family: $primaryFont;
     color: $purple;
+    margin: 3rem 0;
     font-size: 1.25rem;
-    margin: 10rem 0 5rem;
     text-align: center;
+
+    @media screen and (min-width: 1024px) {
+      margin: 10rem 0 5rem;
+    }
   }
 
   .confirmation_icon {
@@ -20,12 +24,25 @@
       display: block;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
       color: $purple;
-      font-size: 10rem;
+      font-size: 5rem;
       font-weight: 200;
       width: fit-content;
       border: 3px solid;
       border-radius: 50%;
-      padding: 3rem 4rem;
+      padding: 2.5rem 3rem;
+
+      @media screen and (min-width: 1024px) {
+        font-size: 10rem;
+        padding: 3rem 4rem;
+      }
+    }
+  }
+
+  .primary_btn {
+    margin: auto 1rem;
+
+    @media screen and (min-width: 768px) {
+      margin: auto;
     }
   }
 }

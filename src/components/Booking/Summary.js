@@ -32,7 +32,11 @@ function Summary(props) {
       title: summary.title,
     };
     axios
-      .post("https://saferoom-hetic.herokuapp.com/bookings", summaryData)
+      .post("https://saferoom-hetic.herokuapp.com/bookings", summaryData, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+        }
+      })
       .then(function (response) {
         redirectToConfirmation();
       })

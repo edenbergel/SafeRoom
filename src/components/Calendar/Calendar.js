@@ -19,7 +19,11 @@ function CalendarGlobal() {
 
   useEffect(() => {
     axios
-    .get("https://saferoom-hetic.herokuapp.com/bookings")
+    .get("https://saferoom-hetic.herokuapp.com/bookings", {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      }
+    })
     .then(function (response) {
       setBookings(response.data)
     })

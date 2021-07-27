@@ -7,6 +7,11 @@
 .ContentUser_content{
   width: 100%;
   position: relative;
+  padding-bottom: 15vh;
+
+  @media screen and (min-width: 1024px) {
+    padding-bottom: 0;
+  }
 }
 
 .shade {
@@ -25,7 +30,3 @@
     z-index: 1;
   }
 }
-
-// .padding_content {
-//   padding: 2vw;
-// }

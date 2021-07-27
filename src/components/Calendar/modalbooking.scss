@@ -5,20 +5,31 @@
 
   .modalBooking_wrapper {
     background-color: #fff;
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 0;
-    bottom: 0;
-    width: 15vw;
+    bottom: auto;
+    width: 100%;
     padding: 2rem;
     z-index: 5;
-    transform: translateX(100%);
+    transform: translateY(-100%);
     transition: all .5s ease-in-out;
+
+    @media screen and (min-width: 1024px) {
+      position: absolute;
+      width: 15vw;
+      bottom: 0;
+      transform: translateX(100%);
+    }
   }
 
   &.active {
     .modalBooking_wrapper {
-      transform: translateX(0);
+      transform: translateY(0);
+
+      @media screen and (min-width: 1024px) {
+        transform: translateX(0);
+      }
     }
 
     .shade {

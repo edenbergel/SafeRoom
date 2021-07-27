@@ -17,9 +17,9 @@ function Salle(props) {
 
   useEffect(()=>{
     axios.get(`https://saferoom-hetic.herokuapp.com/salles/${props.id}`, {
-      // headers: {
-      //   Authorization: `Bearer ${token}`,
-      // }
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      }
     })
     .then(function (response) {
       setData(response.data);

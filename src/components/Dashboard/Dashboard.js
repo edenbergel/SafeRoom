@@ -16,9 +16,9 @@ function Dashboard(props) {
 
   useEffect(()=>{
     axios.get(`https://saferoom-hetic.herokuapp.com/salles`, {
-      // headers: {
-      //   Authorization: `Bearer ${token}`,
-      // }
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      }
     })
     .then(function (response) {
       setSalles(response.data)
@@ -45,7 +45,12 @@ function Dashboard(props) {
   return (
     <div className='Dashboard'>
       <Message title="Bonjour Léa 👋" text="Bienvenue sur votre tableau de bord" />
-      <div className='Dashboard_salles'>
+      <div className='Dashboard_floors'>
+        <Floor name='Étage 1' floor={1} floorSelected={floor} func={isSelected} />
+        <Floor name='Rez de chaussée' floor={0} floorSelected={floor} func={isSelected} />
+      </div>
+
+      <div className='Dashboard_salles Classroom_salles'>
         {salles.map((salle, i)=>{
           return(
             salle.step == floor ? <Link key={i} to={'/salles/' + salle.id}> <SalleItem key={i} name={salle.name} placesAvailable={Math.floor(salle.area / 4)} id={salle.id} placesTaken={salle.placeTaken} /></Link> : ''
@@ -54,10 +59,6 @@ function Dashboard(props) {
       </div>
       <AddSalle visible={addSalle} changeVisibility={changeVisibility} />
       <button className='primary_btn' onClick={viewForm}>Ajouter une salle</button>
-      <div className='Dashboard_floors'>
-        <Floor name='Étage 1' floor={1} floorSelected={floor} func={isSelected} />
-        <Floor name='Rez de chaussée' floor={0} floorSelected={floor} func={isSelected} />
-      </div>
 
       <div className={addSalle ? "shade active" : "shad"}></div>
     </div>

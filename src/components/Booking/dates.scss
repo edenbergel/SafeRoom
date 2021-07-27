@@ -1,11 +1,19 @@
 @import '../../css/styles.scss';
 
 .react-calendar {
-  width: 80vw !important;
+  width: 90% !important;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border: none !important;
   border-radius: 20px;
-  margin: 5rem 45px 0;
+  margin: 3rem 1rem 0;
+
+  @media screen and (min-width: 768px) {
+    margin: 3rem auto 0;
+  }
+
+  @media screen and (min-width: 1024px) {
+    margin: 2rem 2.8125rem 0;
+  }
 
   .react-calendar__tile {
     margin: .875rem 0;
@@ -15,7 +23,11 @@
 
     abbr {
       border-radius: 50%;
-      padding: 1rem .9rem;
+
+      @media screen and (min-width: 1024px) {
+        padding: 1rem .9rem;
+      }
+
       font-size: .875rem;
     }
   }
@@ -53,4 +65,13 @@
       }
     }
   }
+
+  .react-calendar__month-view__weekdays__weekday {
+    padding: 0;
+    white-space: pre;
+
+    @media screen and (min-width: 1024px) {
+      padding: 0.5em;
+    }
+}
 }
