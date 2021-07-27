@@ -1,0 +1,53 @@
+@import '../../css/var/var.scss';
+
+.AddSalle{
+  height: auto;
+  width: 600px;
+  background: #FFF;
+  padding: 45px;
+  position: absolute;
+  left: calc(50% - 300px);
+  top: 200px;
+  display: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.06);
+  border-radius: 14px;
+  &.visible{
+    display: block;
+  }
+  form{
+    display: flex;
+    flex-direction: column;
+  }
+  input{
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #E6E6E6;
+    font-family: $primaryFont;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    &::placeholder{
+      font-family: $primaryFont;
+    }
+  }
+
+  button{
+    background: $purple;
+    border: none;
+    color: #FFF;
+    border-radius: 14px;
+    padding: 10px;
+    font-weight: 600;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+}
+
+.AddSalle_close{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  &:hover{
+    cursor: pointer;
+  }
+}

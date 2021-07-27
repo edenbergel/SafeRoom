@@ -5,7 +5,7 @@ import 'antd/dist/antd.css';
 import moment from "moment";
 import StepButtons from '../StepButtons/StepButtons';
 
-function Hours() {
+function Hours(props) {
   const disabledHours = [0, 1, 2, 3, 4, 5, 6, 7, 20, 21, 22, 23];
 
   const [timeStart, setTimeStart] = useState(null);
@@ -32,7 +32,7 @@ function Hours() {
         <TimePicker format="hh:mm" onChange={onTimeStart} disabledHours={() => disabledHours} hideDisabledOptions={true} minuteStep={30} size="large"/>
         <TimePicker format="hh:mm" onChange={onTimeEnd} disabledHours={() => disabledHours} hideDisabledOptions={true} minuteStep={30} size="large"/>
       </div>
-      <StepButtons prev="booking" next="seats" enableSteps={enableSteps} />
+      <StepButtons prev="booking" next={"seats/" + props.id} enableSteps={enableSteps} />
     </div>
   );
 }

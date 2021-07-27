@@ -15,7 +15,7 @@ function SideBar(props) {
         <img src={logo} alt="Logo" />
       </div>
       <div>
-        <ElementMenu name="Réservations" id="booking" />
+        <ElementMenu name="Réservations" id="classrooms" />
         <ElementMenu name="Calendrier" id="calendar" />
         <ElementMenu name="Tableau de bord" id="dashboard" />
       </div>

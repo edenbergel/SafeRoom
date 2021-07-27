@@ -3,8 +3,6 @@ import  './stepbuttons.scss'
 
 function StepButtons(props) {
 
-  console.log(props.enableSteps, props);
-
   return (
     <div className={ props.prev === null ? 'step_buttons step_buttons_only' : 'step_buttons'}>
       { props.prev === null ? 
