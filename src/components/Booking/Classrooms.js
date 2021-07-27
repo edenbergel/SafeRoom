@@ -30,7 +30,7 @@ function Classroom() {
   })
 
   return (
-    <div className='Classroom'>
+    <div className='Classroom padding_content'>
       <div className='Classroom_salles'>
         {salles.map((salle, i)=>{
           const placesAvailable = Math.floor(salle.area / 4) - salle.placeTaken;

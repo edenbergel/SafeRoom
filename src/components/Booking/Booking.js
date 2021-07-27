@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { InputNumber } from 'antd';
 
 import './booking.scss';
+import 'antd/dist/antd.css';
 import StepButtons from '../StepButtons/StepButtons';
 
 const axios = require('axios');
@@ -49,7 +50,7 @@ function Booking(props) {
   },[]);
 
   return (
-    <div className="seats__container">
+    <div className="seats__container padding_content">
       <div className="seats__inner">
         <div className="seats">
           {placesAvailableArray}
@@ -60,7 +61,7 @@ function Booking(props) {
           <InputNumber min={0} max={placesAvailable} defaultValue={0} onChange={onQuantityChange} size="large" />
         </div>
       </div>
-      <StepButtons prev="hours" next={"summary/" + props.id} enableSteps={enableSteps} />
+      <StepButtons prev={"booking/" + props.id} next={"summary/" + props.id} enableSteps={enableSteps} />
     </div>
   )
 }

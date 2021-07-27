@@ -21,7 +21,7 @@
   justify-content: space-around;
   align-items: center;
   border: 1px solid $lightBlue;
-  padding: 2rem;
+  padding: 2rem 0;
 
   .seats {
     display: flex;
@@ -58,7 +58,7 @@
   p {
     font-family: $primaryFont;
     color: $purple;
-    margin-bottom: 1rem;
+    padding-bottom: 1rem;
     text-align: center;
   }
 
