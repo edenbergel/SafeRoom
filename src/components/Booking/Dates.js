@@ -9,14 +9,14 @@ import moment from "moment";
 import 'moment/locale/fr';
 import StepButtons from '../StepButtons/StepButtons';
 
-function Dates() {
+function Dates(props) {
   const [dateState, setDateState] = useState(new Date());
   
   const changeDate = (e) => {
     setDateState(e);
   }
 
-  console.log(moment(dateState + 'UTC').utc().format('YYYY-MM-DDTHH:mm:ss.SSS[Z]'));
+  //console.log(moment(dateState + 'UTC').utc().format('YYYY-MM-DDTHH:mm:ss.SSS[Z]'));
 
   useEffect(() => {
     localStorage.setItem("selectedDateInitial", moment(dateState + 'UTC').utc().format('YYYY-MM-DDTHH:mm:ss.SSS[Z]'));
@@ -34,7 +34,7 @@ function Dates() {
         prev2Label={null}
         next2Label={null}
       />
-      <StepButtons prev={null} next="hours"/>
+      <StepButtons prev={null} next={"hours/" + props.id}/>
     </div>
   );
 }

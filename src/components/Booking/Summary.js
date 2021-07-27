@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import StepButtons from '../StepButtons/StepButtons';
 import './summary.scss';
 
@@ -13,33 +13,31 @@ function Summary() {
   }
 
   const summary = {
-    title: null,
-    //start: "2021-07-26T16:48:33.911Z",
-    //end: "2021-07-26T16:48:33.911Z",
+    title: localStorage.getItem('idSalleName'),
+    start: localStorage.getItem("selectedDateInitial"),
+    end: localStorage.getItem("selectedDateInitial"),
     nb_places: localStorage.getItem("nbSeatSelected"),
-    user: null
-  }
+    user: null,
+  };
 
-  console.log(summary.end, summary.start);
   const sendDetailsToServer = (e) => {
-    e.preventDefault()
-      const summaryData = {
-        "user": summary.user,
-        "start": "2021-07-30T16:48:33.911Z",
-        "end": "2021-07-30T17:48:33.911Z",
-        "nb_places": summary.nb_places,
-        "title": summary.title,
-      }
-      console.log(summaryData);
-      axios.post('https://saferoom-hetic.herokuapp.com/reservations', summaryData)
+    e.preventDefault();
+    const summaryData = {
+      user: null,
+      start: summary.start,
+      end: summary.end,
+      nb_places: summary.nb_places,
+      title: summary.title,
+    };
+    axios
+      .post("https://saferoom-hetic.herokuapp.com/bookings", summaryData)
       .then(function (response) {
-        console.log(response);
-        redirectToConfirmation()
+        redirectToConfirmation();
       })
       .catch(function (error) {
         console.log(error);
-      })
-  }
+      });
+  };
 
   const redirectToConfirmation = () => {
     window.location.assign('/confirmation');
@@ -51,7 +49,7 @@ function Summary() {
         <h1>Récapitulatif de votre réservation</h1>
         <div><p>Date</p> {localStorage.getItem("selectedDate")}</div>
         <div><p>Horaires</p> {localStorage.getItem("selectedTimeStart")}h à {localStorage.getItem("selectedTimeEnd")}h</div>
-        <div><p>Salle</p> </div>
+        <div><p>Salle</p> {localStorage.getItem('idSalleName')}</div>
         <div className="seats"><p>{localStorage.getItem("nbSeatSelected") > 1 ? 'Places' : 'Place' }</p> {recapSeatsArray}</div>
 
         <button type="submit" className="summary_btn" onClick={sendDetailsToServer}>Valider</button>

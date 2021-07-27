@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -26,10 +26,10 @@ function App() {
             <Route path="/summary">
               <ContentUser />
             </Route>
-            <Route path="/seats">
+            <Route path="/seats/:id">
               <ContentUser />
             </Route>
-            <Route path="/hours">
+            <Route path="/hours/:id">
               <ContentUser />
             </Route>
             <Route path="/dashboard">
@@ -38,7 +38,10 @@ function App() {
             <Route path="/calendar">
               <ContentUser />
             </Route>
-            <Route path="/booking">
+            <Route path="/booking/:id">
+              <ContentUser />
+            </Route>
+            <Route path="/classrooms">
               <ContentUser />
             </Route>
             <Route path="/salles/:id">
