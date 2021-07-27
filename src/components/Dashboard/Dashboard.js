@@ -16,12 +16,12 @@ function Dashboard(props) {
 
   useEffect(()=>{
     axios.get(`https://saferoom-hetic.herokuapp.com/salles`, {
-      // headers: {
-      //   Authorization: `Bearer ${token}`,
-      // }
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      }
     })
     .then(function (response) {
-      setSalles(response.data)
+      setSalles(response.data);
     })
     .catch(function (error) {
       console.log(error);

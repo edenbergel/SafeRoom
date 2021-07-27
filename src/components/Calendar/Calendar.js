@@ -19,7 +19,11 @@ function CalendarGlobal() {
 
   useEffect(() => {
     axios
-    .get("https://saferoom-hetic.herokuapp.com/bookings")
+    .get("https://saferoom-hetic.herokuapp.com/bookings", {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      }
+    })
     .then(function (response) {
       setBookings(response.data)
     })
@@ -39,7 +43,7 @@ function CalendarGlobal() {
 
   return (
     <div>
-      <Message title="Bonjour Léa 👋" text="Voici le calendrier de vos réservations" />
+      <Message title="Bonjour Léa 👋" text="Voici le calendrier des réservations des élèves" />
       <Calendar
         localizer={localizer}
         events={bookings}

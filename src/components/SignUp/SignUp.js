@@ -4,6 +4,7 @@ import axios from "axios";
 import logowhite from "../../assets/logo-white.svg";
 import jwt_decode from "jwt-decode";
 import { Redirect } from "react-router-dom";
+
 function SignUp(props) {
   const [login, setLogin] = useState({
     email: "",
@@ -24,6 +25,7 @@ function SignUp(props) {
       })
       .then((response) => {
         localStorage.setItem("jwt", response.data.jwt);
+        const jwt = localStorage.getItem("jwt");
         setConnected(true);
       })
       .catch((message) => {

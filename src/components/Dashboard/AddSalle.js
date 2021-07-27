@@ -1,18 +1,15 @@
 import './addsalle.scss';
 import close from '../../assets/close.svg'
 import React, {useState, useEffect} from 'react';
+import { Redirect } from 'react-router';
 const axios = require('axios');
 
 function AddSalle(props) {
 
-  const [visibility, setVisibility] = useState(props.visible);
-
   const [salle, setSalle] = useState({
     name: "",
     step: 0,
-    temperature: 0,
-    area: 0,
-    placeTaken: 0
+    area: 0
   })
 
   const handleChange = (e) => {
@@ -30,14 +27,17 @@ function AddSalle(props) {
       const salleData = {
         "name": salle.name,
         "step": salle.step,
-        "temperature": salle.temperature,
-        "area": salle.area,
-        "placeTaken": salle.placeTaken
+        "area": salle.area
       }
 
-      axios.post('https://saferoom-hetic.herokuapp.com/salles', salleData)
-      .then(function (response) {
+      axios.post('https://saferoom-hetic.herokuapp.com/salles', salleData, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+        }
+      })
+      .then(function () {
         props.changeVisibility(false);
+        <Redirect to="/dashboard" />
       })
       .catch(function (error) {
         console.log(error);
@@ -71,28 +71,12 @@ function AddSalle(props) {
           value={salle.step} 
           onChange={handleChange}
         />
-        <label htmlFor="temperature">Temperature</label>
-        <input 
-          type="number" 
-          id="temperature" 
-          placeholder="Temperature" 
-          value={salle.temperature} 
-          onChange={handleChange}
-        />
         <label htmlFor="area">Superficie</label>
         <input 
           type="number" 
           id="area" 
           placeholder="Superficie" 
           value={salle.area} 
-          onChange={handleChange}
-        />
-        <label htmlFor="placeTaken">Places prises</label>
-        <input 
-          type="number" 
-          id="placeTaken" 
-          placeholder="Places prises" 
-          value={salle.placeTaken} 
           onChange={handleChange}
         />
         <button type="submit">Ajouter</button>
