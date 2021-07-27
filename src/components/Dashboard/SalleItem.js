@@ -6,6 +6,7 @@ function SalleItem(props) {
 
   const passId = ()=>{
     localStorage.setItem('idSalle', props.id);
+    localStorage.setItem('idSalleName', props.name);
   }
 
   return (

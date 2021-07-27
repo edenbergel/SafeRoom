@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -9,6 +9,7 @@ import './App.scss';
 
 import SignUp from './components/SignUp/SignUp';
 import ContentUser from './components/ContentUser/ContentUser';
+
 function App() {
 
   return (
@@ -19,13 +20,28 @@ function App() {
             <Route exact path="/">
               <SignUp />
             </Route>
+            <Route path="/confirmation">
+              <ContentUser />
+            </Route>
+            <Route path="/summary">
+              <ContentUser />
+            </Route>
+            <Route path="/seats/:id">
+              <ContentUser />
+            </Route>
+            <Route path="/hours/:id">
+              <ContentUser />
+            </Route>
             <Route path="/dashboard">
               <ContentUser />
             </Route>
             <Route path="/calendar">
               <ContentUser />
             </Route>
-            <Route path="/booking">
+            <Route path="/booking/:id">
+              <ContentUser />
+            </Route>
+            <Route path="/classrooms">
               <ContentUser />
             </Route>
             <Route path="/salles/:id">

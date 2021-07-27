@@ -1,3 +1,5 @@
+@import '../../css/styles.scss';
+
 .react-calendar {
   width: 80vw !important;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -5,13 +7,15 @@
   border-radius: 20px;
 
   .react-calendar__tile {
-    margin: .5rem 0;
+    margin: .875rem 0;
     overflow: visible !important;
     background-color: unset !important;
+    font-family: $primaryFont;
 
     abbr {
       border-radius: 50%;
-      padding: 1rem;
+      padding: 1rem .9rem;
+      font-size: .875rem;
     }
   }
 
@@ -23,7 +27,7 @@
 
   .react-calendar__tile--active {
     abbr {
-      background-color: #4461F2;
+      background-color: $purple;
     }
   }
 
@@ -33,14 +37,17 @@
 
   abbr[title] {
     text-decoration: none;
+    font-size: .875rem;
+    font-weight: 400;
   }
 
   .react-calendar__navigation {
+    padding: 3rem 0;
     button {
       flex-grow: unset !important;
 
       span {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
         text-transform: capitalize;
       }
     }

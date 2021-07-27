@@ -1,0 +1,31 @@
+@import '../../css/styles.scss';
+
+.confirmation {
+  margin: auto;
+  width: fit-content;
+
+  h1 {
+    font-family: $primaryFont;
+    color: $purple;
+    font-size: 1.25rem;
+    margin-bottom: 5rem;
+  }
+
+  .confirmation_icon {
+    width: fit-content;
+    margin: auto;
+    
+    &::before {
+      content: "\2713";
+      display: block;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      color: $purple;
+      font-size: 10rem;
+      font-weight: 200;
+      width: fit-content;
+      border: 3px solid;
+      border-radius: 50%;
+      padding: 3rem 4rem;
+    }
+  }
+}

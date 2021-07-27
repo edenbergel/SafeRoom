@@ -2,19 +2,28 @@ import React, {useState, useEffect} from 'react';
 import { InputNumber } from 'antd';
 
 import './booking.scss';
+import StepButtons from '../StepButtons/StepButtons';
 
-function Booking() {
+const axios = require('axios');
 
-  const seats = [0, 1, 2, 3, 4, 5, 6];
+function Booking(props) {
+
   const [nbSeatSelected, setNbSeatSelected] = useState(null);
+  const [data, setData] = useState([])
 
-  const seatsItems = seats.map(seat =>
-    <div className="seat__item_wrapper" key={seat}>
-      <div className="seat__item"></div>
-      <div className="seat__item"></div>
-    </div>
-  );
+  const enableSteps = nbSeatSelected === null ? false : true;
+  
+  const placesAvailable = Math.floor(data.area / 4) - data.placeTaken;
+  const placesAvailableArray = []
 
+  for (var i = 0; i < placesAvailable; i++) {
+    placesAvailableArray.push(
+      <div className="seat__item_wrapper" key={i}>
+        <div className="seat__item"></div>
+        <div className="seat__item"></div>
+      </div>
+    )
+  }
   const onQuantityChange = (value)  => {
     let seatsSelected = document.querySelectorAll('.seat__item_wrapper');
     for (var i = 0; i < seatsSelected.length; i++) {
@@ -26,19 +35,32 @@ function Booking() {
     }
 
     setNbSeatSelected(value);
+    localStorage.setItem("nbSeatSelected", value);
   }
 
   useEffect(() => {
-    localStorage.setItem("nbSeatSelected", nbSeatSelected);
-  },[onQuantityChange]);
+    axios.get(`https://saferoom-hetic.herokuapp.com/salles/${props.id}`)
+    .then(function (response) {
+      setData(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+  },[]);
 
   return (
     <div className="seats__container">
-      <div className="seats">
-        {seatsItems}
+      <div className="seats__inner">
+        <div className="seats">
+          {placesAvailableArray}
+        </div>
+
+        <div>
+          <p>Quantité</p>
+          <InputNumber min={0} max={placesAvailable} defaultValue={0} onChange={onQuantityChange} size="large" />
+        </div>
       </div>
-      <InputNumber min={0} max={7} defaultValue={0} onChange={onQuantityChange} />
-      <button onClick={() => window.location.assign('/recap')}>Next</button>
+      <StepButtons prev="hours" next={"summary/" + props.id} enableSteps={enableSteps} />
     </div>
   )
 }

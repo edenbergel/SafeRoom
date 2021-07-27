@@ -5,6 +5,8 @@
   color: $black;
   font-weight: 500;
   border-radius: 10px 0 0 10px;
+  font-family: $primaryFont;
+
   &.active{
     background: $purple;
     color: #FFF;

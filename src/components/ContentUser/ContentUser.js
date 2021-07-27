@@ -1,5 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Booking from '../Booking/Booking';
+import Classrooms from '../Booking/Classrooms';
+import Confirmation from '../Booking/Confirmation';
 import Dates from '../Booking/Dates';
 import Hours from '../Booking/Hours';
 import Summary from '../Booking/Summary';
@@ -20,8 +22,18 @@ function ContentUser() {
         return <Dashboard />;
       case '/calendar':
         return <Calendar />;
-      case '/booking':
-        return <Summary />;
+      case '/classrooms':
+        return <Classrooms id={idSalle}/>;
+      case '/booking/' + idSalle:
+        return <Dates id={idSalle} />;
+      case '/hours/' + idSalle:
+        return <Hours id={idSalle} />;
+      case '/seats/' + idSalle:
+        return <Booking id={idSalle} />;
+      case '/summary/' + idSalle:
+        return <Summary id={idSalle} />;
+      case '/confirmation':
+        return <Confirmation />;
       case '/salles/' + idSalle:
         return <Salle id={idSalle} />;
     }
