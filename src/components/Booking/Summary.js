@@ -49,7 +49,6 @@ function Summary(props) {
       <div className="summary_wrapper">
         <h1>Récapitulatif de votre réservation</h1>
         <div><p>Date</p> {localStorage.getItem("selectedDate")}</div>
-        <div><p>Horaires</p> {localStorage.getItem("selectedTimeStart")}h à {localStorage.getItem("selectedTimeEnd")}h</div>
         <div><p>Salle</p> {localStorage.getItem('idSalleName')}</div>
         <div className="seats"><p>{localStorage.getItem("nbSeatSelected") > 1 ? 'Places' : 'Place' }</p> {recapSeatsArray}</div>
 
