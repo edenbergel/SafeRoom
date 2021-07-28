@@ -5,27 +5,19 @@ import './booking.scss';
 import 'antd/dist/antd.css';
 import StepButtons from '../StepButtons/StepButtons';
 import Message from '../ContentUser/Message';
+import moment from 'moment';
 
 const axios = require('axios');
 
 function Booking(props) {
 
+  let placesBooking = 0;
   const [nbSeatSelected, setNbSeatSelected] = useState(null);
-  const [data, setData] = useState([])
+  const [data, setData] = useState([]);
+  const [bookings, setBookings] = useState([]);
 
   const enableSteps = nbSeatSelected === null ? false : true;
   
-  const placesAvailable = Math.floor(data.area / 4) - data.placeTaken;
-  const placesAvailableArray = []
-
-  for (var i = 0; i < placesAvailable; i++) {
-    placesAvailableArray.push(
-      <div className="seat__item_wrapper" key={i}>
-        <div className="seat__item"></div>
-        <div className="seat__item"></div>
-      </div>
-    )
-  }
   const onQuantityChange = (value)  => {
     let seatsSelected = document.querySelectorAll('.seat__item_wrapper');
     for (var i = 0; i < seatsSelected.length; i++) {
@@ -52,7 +44,36 @@ function Booking(props) {
     .catch(function (error) {
       console.log(error);
     })
+
+    axios.get(`https://saferoom-hetic.herokuapp.com/bookings`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      }
+    })
+    .then(function (response) {
+      setBookings(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
   },[]);
+
+  const hasBookings =
+    bookings.map((booking)=>{
+      return (moment(booking.start).format('YYYY-M-DD') === moment(localStorage.getItem("selectedDateInitial")).format('YYYY-M-DD') ? placesBooking += booking.nb_places : '');
+    });
+
+  const placesAvailable = Math.floor(data.area / 4) - placesBooking;
+  const placesAvailableArray = []
+
+  for (var i = 0; i < placesAvailable; i++) {
+    placesAvailableArray.push(
+      <div className="seat__item_wrapper" key={i}>
+        <div className="seat__item"></div>
+        <div className="seat__item"></div>
+      </div>
+    )
+  }
 
   return (
     <div className="seats__container padding_content">

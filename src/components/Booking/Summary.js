@@ -25,7 +25,7 @@ function Summary(props) {
   const sendDetailsToServer = (e) => {
     e.preventDefault();
     const summaryData = {
-      user: null,
+      user: localStorage.getItem('nameUser'),
       start: summary.start,
       end: summary.end,
       nb_places: summary.nb_places,

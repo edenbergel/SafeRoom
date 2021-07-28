@@ -26,6 +26,7 @@ function ModalBooking(props) {
             }
           </p>
         </div>
+        <p>Nom de la réservation : {props.user}</p>
       </div>
       
       <div className="shade"></div>

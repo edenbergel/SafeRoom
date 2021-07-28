@@ -13,22 +13,8 @@ function Dashboard(props) {
   const [floor, setFloor] = useState(0);
   const [salles, setSalles] = useState([]);
   const [addSalle, setAddSalle] = useState(false);
-  const [user, setUser] = useState([]);
 
   useEffect(()=>{
-    axios.get('https://saferoom-hetic.herokuapp.com/users/me', {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
-      }
-    })
-    .then(function (response) {
-      localStorage.setItem('nameUser', response.data.username);
-      console.log(response.data);
-    })
-    .catch(function (error) {
-      console.log(error);
-    })
-
     axios.get(`https://saferoom-hetic.herokuapp.com/salles`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('jwt')}`,
@@ -66,7 +52,7 @@ function Dashboard(props) {
       <div className='Dashboard_salles Classroom_salles'>
         {salles.map((salle, i)=>{
           return(
-            salle.step == floor ? <Link key={i} to={'/salles/' + salle.id}> <SalleItem key={i} name={salle.name} placesAvailable={Math.floor(salle.area / 4)} id={salle.id} placesTaken={salle.placeTaken} /></Link> : ''
+            salle.step == floor ? <Link key={i} to={'/salles/' + salle.id}> <SalleItem key={i} id={salle.id} placesTaken={salle.placeTaken} /></Link> : ''
           );
         })}
       </div>

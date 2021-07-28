@@ -25,7 +25,6 @@ function SignUp(props) {
       })
       .then((response) => {
         localStorage.setItem("jwt", response.data.jwt);
-        const jwt = localStorage.getItem("jwt");
         setConnected(true);
       })
       .catch((message) => {
@@ -46,7 +45,7 @@ function SignUp(props) {
       {localStorage.getItem("jwt") ? (
         <Redirect
           to={{
-            pathname: "/dashboard",
+            pathname: "/calendar",
           }}
         />
       ) : (
@@ -76,7 +75,7 @@ function SignUp(props) {
                 {connected === true ? (
                   <Redirect
                     to={{
-                      pathname: "/dashboard",
+                      pathname: "/calendar",
                     }}
                   />
                 ) : (

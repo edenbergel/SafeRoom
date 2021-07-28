@@ -12,10 +12,12 @@ const formats = {
   weekdayFormat: (date, culture, localizer) => localizer.format(date, 'dddd', culture),
 }
 
-function CalendarGlobal() {
+function CalendarGlobal(props) {
   const [bookings, setBookings] = useState([]);
   const [modalBooking, setModalBooking] = useState(false);
   const [bookingInfo, setBookingInfo] = useState();
+
+  let userBooking = [];
 
   useEffect(() => {
     axios
@@ -30,6 +32,11 @@ function CalendarGlobal() {
     .catch(function (error) {
       console.log(error);
     });
+
+
+    bookings.map((booking, i)=>{
+      return localStorage.getItem('nameUser') === booking.user ? userBooking.push(booking) : '';
+    })
   }, [])
 
   const changeVisibility = ()=>{
@@ -41,12 +48,14 @@ function CalendarGlobal() {
     setModalBooking(true);
   }
 
+  const func = bookings.map((booking)=>{ return localStorage.getItem('nameUser') === booking.user ? userBooking.push(booking) : ''; });
+
   return (
     <div>
       <Message text="Voici le calendrier des réservations des élèves" />
       <Calendar
         localizer={localizer}
-        events={bookings}
+        events={ props.role === 'Student' ? userBooking : bookings}
         startAccessor="start"
         endAccessor="end"
         style={{ height: 700 }}
@@ -61,7 +70,7 @@ function CalendarGlobal() {
         bookings.map((booking, i)=>{
           return( booking.id === bookingInfo ? 
             
-            <ModalBooking key={i} visible={modalBooking} changeVisibility={changeVisibility} date={booking.start} title={booking.title} nbPlaces={booking.nb_places} /> 
+            <ModalBooking key={i} visible={modalBooking} changeVisibility={changeVisibility} date={booking.start} title={booking.title} nbPlaces={booking.nb_places} user={booking.user} /> 
             : ""
           );
         })

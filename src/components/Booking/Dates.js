@@ -26,7 +26,7 @@ function Dates(props) {
 
   return (
     <div className="Calendar padding_content">
-      <Message text="Bienvenue sur la platform de réservation de salle." step="2/5 : Choisissez une salle" />
+      <Message text="Bienvenue sur la platform de réservation de salle." step="2/5 : Choisissez une date" />
       <Calendar
         onChange={changeDate}
         value={dateState}
