@@ -1,8 +1,8 @@
-import React from 'react';
+import './booking.scss';
 import Message from '../ContentUser/Message';
 import StepButtons from './StepButtons';
-import './summary.scss';
 
+import React from 'react';
 const axios = require("axios");
 
 function Summary(props) {
@@ -37,7 +37,7 @@ function Summary(props) {
           Authorization: `Bearer ${localStorage.getItem('jwt')}`,
         }
       })
-      .then(function (response) {
+      .then(function () {
         redirectToConfirmation();
       })
       .catch(function (error) {
@@ -51,7 +51,7 @@ function Summary(props) {
 
   return (
     <div className="summary padding_content">
-      <Message text="Bienvenue sur la platform de réservation de salle." step="4/5 : Choisissez une salle" />
+      <Message text="Bienvenue sur la plateforme de réservation." step="4/5 : Vérifiez les informations de votre réservation" />
       <div className="summary_wrapper">
         <h1>Récapitulatif de votre réservation</h1>
         <div><p>Date</p> {localStorage.getItem("selectedDate")}</div>

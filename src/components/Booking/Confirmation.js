@@ -1,13 +1,12 @@
 import React from 'react';
 import Message from '../ContentUser/Message';
-import StepButtons from './StepButtons';
-import './confirmation.scss'
+import './booking.scss';
 
 function Confirmation() {
 
   return (
     <div className="confirmation">
-      <Message text="Bienvenue sur la platform de réservation de salle." step="5/5 : Choisissez une salle" />
+      <Message text="Bienvenue sur la plateforme de réservation." step="5/5 : Votre réservation a été enregistrée" />
       <h1>Votre réservation est validée</h1>
       <div className="confirmation_icon"></div>
       <button

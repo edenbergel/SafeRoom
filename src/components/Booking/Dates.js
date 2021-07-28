@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
-
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
-
-import './dates.scss';
-
 import moment from "moment";
 import 'moment/locale/fr';
+
+import './booking.scss';
 import StepButtons from './StepButtons';
 import Message from '../ContentUser/Message';
 
 function Dates(props) {
+
   const [dateState, setDateState] = useState(moment().add(1, 'day')._d);
   const now = new Date();
 
@@ -18,7 +17,6 @@ function Dates(props) {
     setDateState(e);
   }
 
-  console.log(moment().add(1, 'day')._d, dateState)
   useEffect(() => {
     localStorage.setItem("selectedDateInitial", moment(dateState + 'UTC').utc().format('YYYY-MM-DDTHH:mm:ss.SSS[Z]'));
     localStorage.setItem("selectedDate", moment(dateState).format('dddd Do MMMM YYYY'));
@@ -26,7 +24,7 @@ function Dates(props) {
 
   return (
     <div className="Calendar padding_content">
-      <Message text="Bienvenue sur la platform de réservation de salle." step="2/5 : Choisissez une date" />
+      <Message text="Bienvenue sur la plateforme de réservation." step="2/5 : Choisissez une date" />
       <Calendar
         onChange={changeDate}
         value={dateState}

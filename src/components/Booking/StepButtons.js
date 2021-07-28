@@ -1,5 +1,5 @@
 import React from 'react';
-import  './stepbuttons.scss'
+import  './booking.scss'
 
 function StepButtons(props) {
 

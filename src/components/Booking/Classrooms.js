@@ -1,4 +1,4 @@
-import './classrooms.scss';
+import './booking.scss';
 import SalleItem from '../Dashboard/SalleItem';
 import Floor from '../Dashboard/Floor';
 
@@ -7,7 +7,7 @@ import {Link} from "react-router-dom";
 import Message from '../ContentUser/Message';
 const axios = require('axios');
 
-function Classroom() {
+function Classrooms() {
 
   const [floor, setFloor] = useState(0);
   const [salles, setSalles] = useState([]);
@@ -36,7 +36,7 @@ function Classroom() {
 
   return (
     <div className='Classroom padding_content'>
-      <Message text="Bienvenue sur la platform de réservation de salle." step="1/5 : Choisissez une salle" />
+      <Message text="Bienvenue sur la plateforme de réservation." step="1/5 : Choisissez une salle" />
       <div className='Classroom_floors'>
         <Floor name='Étage 1' floor={1} floorSelected={floor} func={isSelected} />
         <Floor name='Rez de chaussée' floor={0} floorSelected={floor} func={isSelected} />
@@ -53,4 +53,4 @@ function Classroom() {
   );
 }
 
-export default Classroom;
+export default Classrooms;

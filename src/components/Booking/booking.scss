@@ -1,5 +1,114 @@
 @import '../../css/styles.scss';
 
+// Classrooms component
+.Classroom_salles{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 5rem 1rem 0;
+
+  @media screen and (min-width: 375px) {
+    justify-content: space-between;
+  }
+  
+  @media screen and (min-width: 1024px) {
+    margin: 2rem 2.8125rem 0;
+    justify-content: left;
+  }
+}
+
+.Classroom_floors{
+  margin-top: 3rem;
+  @media screen and (min-width: 1024px) {
+    position: absolute;
+    bottom: 30px;
+    right: 0;
+    margin-top: 0;
+  }
+}
+
+// Dates component
+.react-calendar {
+  width: 90% !important;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border: none !important;
+  border-radius: 20px;
+  margin: 3rem 1rem 0;
+
+  @media screen and (min-width: 768px) {
+    margin: 3rem auto 0;
+  }
+
+  @media screen and (min-width: 1024px) {
+    margin: 2rem 2.8125rem 0;
+  }
+
+  .react-calendar__tile {
+    margin: .875rem 0;
+    overflow: visible !important;
+    background-color: unset !important;
+    font-family: $primaryFont;
+
+    abbr {
+      border-radius: 50%;
+
+      @media screen and (min-width: 1024px) {
+        padding: 1rem .9rem;
+      }
+
+      font-size: .875rem;
+    }
+  }
+
+  .react-calendar__tile--now {
+    abbr {
+      background-color: #ffff76;
+    }
+  }
+
+  .react-calendar__tile--active {
+    abbr {
+      background-color: $purple;
+    }
+  }
+
+  .react-calendar__month-view__days__day--weekend {
+    color: #A0A0A0;
+  }
+
+  abbr[title] {
+    text-decoration: none;
+    font-size: .875rem;
+    font-weight: 400;
+  }
+
+  .react-calendar__navigation {
+    padding: 3rem 0;
+    button {
+      flex-grow: unset !important;
+
+      span {
+        font-size: 1.5rem;
+        text-transform: capitalize;
+      }
+    }
+  }
+
+  .react-calendar__month-view__weekdays__weekday {
+    padding: 0;
+    white-space: pre;
+
+    @media screen and (min-width: 1024px) {
+      padding: 0.5em;
+    }
+  }
+
+  .react-calendar__tile:disabled {
+    color: $grey;
+  }
+}
+
+// Booking component
 .seat__item_wrapper {
   &.selected{
     >div:first-child {
@@ -105,6 +214,204 @@
       border: 1px solid $purple;
       font-family: $primaryFont;
       color: $purple;
+    }
+  }
+}
+
+// Sumary component
+.summary_wrapper {
+  width: fit-content;
+  margin: 5rem 1rem 0;
+  font-family: $primaryFont;
+
+  @media screen and (min-width: 768px) {
+    margin: 5rem auto 0;
+  }
+
+  h1 {
+    color: $purple;
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  div {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+
+    p {
+      color: $grey;
+      font-weight: 500;
+      display: inline-block;
+      width: 25%;  
+    }
+  }
+
+  .seats {
+    display: flex;
+    flex-wrap: wrap;
+  
+    .seat__item {
+      background-color: $lightBlue;
+      width: fit-content;
+      padding: .5rem;
+      border-radius: 5px;
+
+      &:not(:last-of-type) {
+        margin-right: 1rem;
+      }
+  
+      &:before {
+        content: "";
+        mask: url("../../assets/seat-available.svg") no-repeat center;
+        background-color: $lightPurple;
+        width: 3rem;
+        height: 3rem;
+        display: block;
+      }
+  
+      &.seat__item-active {
+        background-color: $purple;
+  
+        &:before {
+          background-color: #fff;
+        }
+      }
+    }
+  }
+}
+
+.primary_btn {
+  background-color: $purple;
+  border: 1px solid $purple;
+  color: #fff;
+  border-radius: 10px;
+  padding: 1rem 5rem;
+  display: flex;
+  margin: auto;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: ease-out 0.4s;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #fff;
+    color: $purple;
+    box-shadow: inset 400px 0 0 0 #fff;
+  }
+}
+
+// Confirmation component
+
+.confirmation {
+  margin: auto;
+
+  h1 {
+    font-family: $primaryFont;
+    color: $purple;
+    margin: 3rem 0;
+    font-size: 1.25rem;
+    text-align: center;
+
+    @media screen and (min-width: 1024px) {
+      margin: 10rem 0 5rem;
+    }
+  }
+
+  .confirmation_icon {
+    width: fit-content;
+    margin: auto auto 5rem;
+    
+    &::before {
+      content: "\2713";
+      display: block;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      color: $purple;
+      font-size: 5rem;
+      font-weight: 200;
+      width: fit-content;
+      border: 3px solid;
+      border-radius: 50%;
+      padding: 2.5rem 3rem;
+
+      @media screen and (min-width: 1024px) {
+        font-size: 10rem;
+        padding: 3rem 4rem;
+      }
+    }
+  }
+
+  .primary_btn {
+    margin: auto 1rem;
+
+    @media screen and (min-width: 768px) {
+      margin: auto;
+    }
+  }
+}
+
+// StepButtons component
+.step_buttons {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 1rem;
+
+  @media screen and (min-width: 1024px) {
+    margin: 5rem 2.8125rem 0;
+  }
+
+  &.step_buttons_only {
+    justify-content: flex-end;
+  }
+
+  button {
+    font-family: $primaryFont;
+    color: $purple;
+    border: none;
+    background-color: transparent;
+    display: flex;
+
+    @media screen and (min-width: 1024px) {
+      display: block;
+    }
+
+    &:not([disabled]) {
+      cursor: pointer;
+    }
+
+    &::before, &::after {
+      font-size: 1rem;
+
+      @media screen and (min-width: 1024px) {
+        font-size: 1.5rem;
+      }
+    }
+
+    &.step_buttons_prev {
+      text-align: left;
+
+      &::before {
+        content: "\27F5";
+        margin-right: 1rem;
+      }
+    }
+
+    &.step_buttons_next {
+      text-align: right;
+
+      &[disabled] {
+        color: $grey;
+      }
+
+      &::after {
+        content: "\27F6";
+        margin-left: 1rem;
+      }
+    }
+
+    &:focus {
+      outline: none;
     }
   }
 }
