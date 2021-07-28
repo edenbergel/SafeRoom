@@ -1,6 +1,6 @@
 import React from 'react';
 import Message from '../ContentUser/Message';
-import StepButtons from '../StepButtons/StepButtons';
+import StepButtons from './StepButtons';
 import './summary.scss';
 
 const axios = require("axios");

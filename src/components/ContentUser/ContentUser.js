@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+
 import Booking from '../Booking/Booking';
 import Classrooms from '../Booking/Classrooms';
 import Confirmation from '../Booking/Confirmation';
@@ -15,7 +16,6 @@ import "./contentuser.scss";
 function ContentUser() {
 
   const idSalle = localStorage.getItem("idSalle");
-
   const [roleUser, setRoleUser] = useState('');
 
   useEffect(()=>{

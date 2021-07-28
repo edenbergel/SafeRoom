@@ -7,7 +7,7 @@ import './dates.scss';
 
 import moment from "moment";
 import 'moment/locale/fr';
-import StepButtons from '../StepButtons/StepButtons';
+import StepButtons from './StepButtons';
 import Message from '../ContentUser/Message';
 
 function Dates(props) {

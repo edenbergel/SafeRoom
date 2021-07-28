@@ -3,7 +3,7 @@ import { InputNumber } from 'antd';
 
 import './booking.scss';
 import 'antd/dist/antd.css';
-import StepButtons from '../StepButtons/StepButtons';
+import StepButtons from './StepButtons';
 import Message from '../ContentUser/Message';
 import moment from 'moment';
 
