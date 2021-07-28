@@ -43,7 +43,7 @@ function Dashboard(props) {
 
   return (
     <div className='Dashboard'>
-      <Message text="Bienvenue sur votre tableau de bord" />
+      <Message text="Bienvenue sur votre tableau de bord." />
       <div className='Dashboard_floors'>
         <Floor name='Étage 1' floor={1} floorSelected={floor} func={isSelected} />
         <Floor name='Rez de chaussée' floor={0} floorSelected={floor} func={isSelected} />

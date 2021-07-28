@@ -1,7 +1,8 @@
 import React from 'react';
 import moment from "moment";
+
 import close from '../../assets/close.svg'
-import './modalbooking.scss';
+import './calendar.scss'
 
 function ModalBooking(props) {
 
@@ -20,7 +21,7 @@ function ModalBooking(props) {
 
         <div className="modalBooking_info_wrap">
           <p className="modalBooking_class">{props.title}</p>
-          <p>{props.nbPlaces} 
+          <p>{props.nbPlaces}
             {
               props.nbPlaces > 1 ? " places réservées" : " place réservée"
             }
@@ -28,7 +29,6 @@ function ModalBooking(props) {
         </div>
         <p>Nom de la réservation : {props.user}</p>
       </div>
-      
       <div className="shade"></div>
     </div>
   )

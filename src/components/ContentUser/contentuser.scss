@@ -11,6 +11,9 @@
 
   @media screen and (min-width: 1024px) {
     padding-bottom: 0;
+    max-height: 100vh;
+    height: 100vh;
+    overflow: scroll;
   }
 }
 

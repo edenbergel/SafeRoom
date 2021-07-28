@@ -1,20 +1,27 @@
 import React, { useState } from "react";
-import "./signup.scss";
-import axios from "axios";
-import logowhite from "../../assets/logo-white.svg";
-import jwt_decode from "jwt-decode";
 import { Redirect } from "react-router-dom";
+import axios from "axios";
 
-function SignUp(props) {
+import "./signup.scss";
+import logowhite from "../../assets/logo-white.svg";
+
+
+function SignUp() {
   const [login, setLogin] = useState({
     email: "",
     password: "",
   });
 
+  const [connected, setConnected] = useState(false);
   const [error, setError] = useState();
 
-  const [user, setUser] = useState();
-  const [connected, setConnected] = useState(false);
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setLogin((prevState) => ({
+      ...prevState,
+      [id]: value,
+    }));
+  };
 
   const handeSubmit = (e) => {
     e.preventDefault();
@@ -27,17 +34,9 @@ function SignUp(props) {
         localStorage.setItem("jwt", response.data.jwt);
         setConnected(true);
       })
-      .catch((message) => {
+      .catch(() => {
         setError("Une erreur est survenue, veuillez réessayer.");
       });
-  };
-
-  const handleChange = (e) => {
-    const { id, value } = e.target;
-    setLogin((prevState) => ({
-      ...prevState,
-      [id]: value,
-    }));
   };
 
   return (
