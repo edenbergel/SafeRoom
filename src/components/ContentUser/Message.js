@@ -5,7 +5,7 @@ function Message(props) {
 
   return (
     <div className='Message'>
-      <h2>{props.title}</h2>
+      <h2>Bonjour {localStorage.getItem('nameUser')} 👋</h2>
       <p>{props.text}</p>
       <p>{props.step}</p>
     </div>

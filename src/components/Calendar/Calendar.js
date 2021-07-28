@@ -43,7 +43,7 @@ function CalendarGlobal() {
 
   return (
     <div>
-      <Message title="Bonjour Léa 👋" text="Voici le calendrier des réservations des élèves" />
+      <Message text="Voici le calendrier des réservations des élèves" />
       <Calendar
         localizer={localizer}
         events={bookings}

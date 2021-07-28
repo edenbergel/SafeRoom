@@ -56,7 +56,7 @@ function Booking(props) {
 
   return (
     <div className="seats__container padding_content">
-      <Message title="Bonjour Léa 👋" text="Bienvenue sur la platform de réservation de salle." step="3/5 : Choisissez une salle" />
+      <Message text="Bienvenue sur la platform de réservation de salle." step="3/5 : Choisissez une salle" />
       <div className="seats__inner">
         <div className="seats">
           {placesAvailableArray}

@@ -7,7 +7,7 @@ function Confirmation() {
 
   return (
     <div className="confirmation">
-      <Message title="Bonjour Léa 👋" text="Bienvenue sur la platform de réservation de salle." step="5/5 : Choisissez une salle" />
+      <Message text="Bienvenue sur la platform de réservation de salle." step="5/5 : Choisissez une salle" />
       <h1>Votre réservation est validée</h1>
       <div className="confirmation_icon"></div>
       <button

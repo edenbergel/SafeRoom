@@ -13,8 +13,22 @@ function Dashboard(props) {
   const [floor, setFloor] = useState(0);
   const [salles, setSalles] = useState([]);
   const [addSalle, setAddSalle] = useState(false);
+  const [user, setUser] = useState([]);
 
   useEffect(()=>{
+    axios.get('https://saferoom-hetic.herokuapp.com/users/me', {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      }
+    })
+    .then(function (response) {
+      localStorage.setItem('nameUser', response.data.username);
+      console.log(response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+
     axios.get(`https://saferoom-hetic.herokuapp.com/salles`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('jwt')}`,
@@ -26,7 +40,6 @@ function Dashboard(props) {
     .catch(function (error) {
       console.log(error);
     })
-
 
   }, [])
 
@@ -44,7 +57,7 @@ function Dashboard(props) {
 
   return (
     <div className='Dashboard'>
-      <Message title="Bonjour Léa 👋" text="Bienvenue sur votre tableau de bord" />
+      <Message text="Bienvenue sur votre tableau de bord" />
       <div className='Dashboard_floors'>
         <Floor name='Étage 1' floor={1} floorSelected={floor} func={isSelected} />
         <Floor name='Rez de chaussée' floor={0} floorSelected={floor} func={isSelected} />
