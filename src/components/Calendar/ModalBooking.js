@@ -14,7 +14,7 @@ function ModalBooking(props) {
     <div className={props.visible === true ? "modalBooking active" : "modalBooking"}>
 
       <div className="modalBooking_wrapper">
-        <img className='modalBooking_close' src={close} onClick={closeForm} />
+        <img className='modalBooking_close' src={close} onClick={closeForm} alt="Icône fermeture réservation" />
 
         <h3>Réservation</h3>
         <p className="modalBooking_date">{moment(props.date).format('dddd Do MMMM')}</p>

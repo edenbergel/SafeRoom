@@ -46,7 +46,7 @@ function SideBar() {
       }
       <div className="deco" onClick={disconnect}>
         <div className="sign">
-          <img src={logout} />
+          <img src={logout} alt='Icône deconnexion' />
         </div>
         <Link to="/">Déconnexion</Link>
       </div>

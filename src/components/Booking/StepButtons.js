@@ -11,7 +11,7 @@ function StepButtons(props) {
       { props.next === null ? 
         "" : <button className="step_buttons_next" 
                     onClick={() => window.location.assign('/' + props.next)} 
-                    disabled={!props.enableSteps && props.enableSteps != undefined}>Étape suivante</button> 
+                    disabled={!props.enableSteps && props.enableSteps !== undefined}>Étape suivante</button> 
       }
     </div>
   )

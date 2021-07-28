@@ -1,5 +1,6 @@
 @import '../../css/var/var.scss';
 
+// Dashboard component
 .Dashboard_salles{
 
   @media screen and (min-width: 1024px) {
@@ -37,5 +38,218 @@
     @media screen and (min-width: 1024px) {
       margin: auto;
     }
+  }
+}
+
+// AddSalle component
+
+.AddSalle{
+  height: auto;
+  width: 100%;
+  background: #FFF;
+  padding: 45px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.06);
+  border-radius: 14px;
+  z-index: 2;
+
+  @media screen and (min-width: 768px) {
+    width: 90%;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 600px;
+    position: absolute;
+  }
+
+  &.visible{
+    display: block;
+  }
+  form{
+    display: flex;
+    flex-direction: column;
+  }
+  input{
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #E6E6E6;
+    font-family: $primaryFont;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    &::placeholder{
+      font-family: $primaryFont;
+    }
+  }
+}
+
+.AddSalle_close{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+// SalleItem component
+.SalleItem{
+  height: 200px;
+  width: 100%;
+  background: $lightBlue;
+  border-radius: 14px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: $purple;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 2rem;
+
+  @media screen and (min-width: 375px) {
+    width: 43vw;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 200px;
+    margin: 0 15px;
+  }
+
+  >div:first-child{
+    height: 7px;
+    width: 7px;
+    border-radius: 50%;
+    &.green{
+      background: $green;
+    }
+    &.orange{
+      background: $orange;
+    }
+    &.red{
+      background: $red;
+    }
+  }
+}
+
+// Salle component
+.Salle{
+  display: flex;
+  padding: 30px;
+  flex-direction: column;
+}
+
+.Salle_items{
+  display: flex;
+}
+
+.Salle_item{
+  margin-right: 30px;
+  >p{
+    color: $purple;
+    font-weight: 600;
+    margin-bottom: 10px !important;
+  }
+  >div{
+    height: 230px;
+    width: 230px;
+    background: #FFF;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $purple;
+    font-weight: 600;
+  }
+  &:first-child >div{
+    justify-content: space-between;
+  }
+  .strong{
+    font-size: 26px;
+  }
+}
+
+.Salle_availablity{
+  margin-top: 35px;
+  width: fit-content;
+  >p{
+    color: $purple;
+    font-weight: 600;
+    margin-bottom: 10px !important;
+  }
+  >div{
+    background: #FFF;
+    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.06);
+    border-radius: 15px;
+    padding: 25px;
+    display: flex;
+  }
+}
+
+.Salle_divAvailablity{
+  margin-right: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #6F7070;
+  >img:nth-child(2){
+    display: none;
+  }
+  &.active{
+    >img:first-child{
+      display: none;
+    }
+    >img:nth-child(2){
+      display: block;
+    }
+    &:first-child >p{
+      color: $green;
+    }
+    &:nth-child(2) >p{
+      color: $orange;
+    }
+    &:last-child >p{
+      color: $red;
+    }
+  }
+  &:last-child{
+    margin-right: 0;
+  }
+  >p{
+    margin-top: 10px;
+    font-weight: 600;
+  }
+}
+
+// Floor component
+.Floor{
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-transform: uppercase;
+  color: $grey;
+  font-weight: 600;
+  margin-bottom: 30px;
+  &.active{
+    color: $purple;
+    div{
+      background: $purple;
+    }
+  }
+  &:hover{
+    cursor: pointer;
+  }
+  div{
+    height: 3px;
+    width: 30px;
+    background: $grey;
+    margin-left: 10px;
   }
 }

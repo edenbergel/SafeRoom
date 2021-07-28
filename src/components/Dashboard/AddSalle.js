@@ -1,7 +1,7 @@
-import './addsalle.scss';
+import './dashboard.scss';
 import close from '../../assets/close.svg'
-import React, {useState, useEffect} from 'react';
-import { Redirect } from 'react-router';
+
+import React, {useState} from 'react';
 const axios = require('axios');
 
 function AddSalle(props) {
@@ -53,7 +53,7 @@ function AddSalle(props) {
 
   return (
     <div className={props.visible === true ? 'AddSalle visible' : 'AddSalle'}>
-      <img className='AddSalle_close' src={close} onClick={closeForm} />
+      <img className='AddSalle_close' src={close} onClick={closeForm} alt="Icône fermeture popup" />
       <form onSubmit={formAddSalle}>
         <label htmlFor="name">Nom de la salle</label>
         <input 

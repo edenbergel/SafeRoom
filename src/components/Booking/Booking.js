@@ -40,7 +40,7 @@ function Booking(props) {
     .catch(function (error) {
       console.log(error);
     })
-  },[]);
+  });
 
   const onQuantityChange = (value)  => {
     let seatsSelected = document.querySelectorAll('.seat__item_wrapper');

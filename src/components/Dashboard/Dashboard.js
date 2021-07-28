@@ -2,13 +2,13 @@ import './dashboard.scss';
 import SalleItem from './SalleItem';
 import Floor from './Floor';
 import AddSalle from './AddSalle';
+import Message from '../ContentUser/Message';
 
 import React, {useState, useEffect} from 'react';
 import {Link} from "react-router-dom";
-import Message from '../ContentUser/Message';
 const axios = require('axios');
 
-function Dashboard(props) {
+function Dashboard() {
 
   const [floor, setFloor] = useState(0);
   const [salles, setSalles] = useState([]);
@@ -52,7 +52,7 @@ function Dashboard(props) {
       <div className='Dashboard_salles Classroom_salles'>
         {salles.map((salle, i)=>{
           return(
-            salle.step == floor ? <Link key={i} to={'/salles/' + salle.id}> <SalleItem key={i} id={salle.id} placesTaken={salle.placeTaken} /></Link> : ''
+            salle.step == floor ? <Link key={i} to={'/salles/' + salle.id}> <SalleItem key={i} id={salle.id} /></Link> : ''
           );
         })}
       </div>

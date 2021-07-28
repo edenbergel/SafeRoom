@@ -6,7 +6,7 @@ const dispoSalle = (placesAvailable, placesTaken)=>{
   if(demi <= placesTaken &&  placesTaken < (demi*2)) {
     return 'orange';
   };
-  if(placesTaken == placesAvailable){
+  if(placesTaken === placesAvailable){
     return 'red';
   };
 };

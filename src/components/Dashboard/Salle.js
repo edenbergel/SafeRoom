@@ -1,4 +1,4 @@
-import './salle.scss';
+import './dashboard.scss';
 import {dispoSalle} from './dispoSalle';
 import moment from 'moment';
 
@@ -81,19 +81,21 @@ function Salle(props) {
 
   const updateValues = (value)=>{
     placesBooking += value;
-    if(tempSalles[props.id] && nbPerson[props.id]){
-      tempSalle = tempSalles[props.id]._value;
-      placesRealTime = nbPerson[props.id]._value;
-    }
-    allPlacesTaken = placesBooking + placesRealTime;
-    dispo = dispoSalle(nbPlaces, allPlacesTaken);
   }
+
+  if(tempSalles[props.id] && nbPerson[props.id]){
+    tempSalle = tempSalles[props.id]._value;
+    placesRealTime = nbPerson[props.id]._value;
+  }
+  allPlacesTaken = placesBooking + placesRealTime;
+  dispo = dispoSalle(nbPlaces, allPlacesTaken);
+
+  bookings.map((booking, i)=>{
+    return(formatDate === moment(booking.start).format('YYYY-M-DD') ? updateValues(booking.nb_places) : '')
+  })
 
   return (
     <div className='Salle'>
-      {bookings.map((booking, i)=>{
-        return(formatDate === moment(booking.start).format('YYYY-M-DD') ? updateValues(booking.nb_places) : '')
-      })}
       <div className='Salle_items'>
         <div className='Salle_item'>
           <p>Salle</p>
@@ -119,19 +121,19 @@ function Salle(props) {
       <div className='Salle_availablity'>
         <p>Disponibilités</p>
         <div>
-          <div className={dispo == 'green' ? 'Salle_divAvailablity active' : 'Salle_divAvailablity'}>
-            <img src={goodSalle} />
-            <img src={greenSalle} />
+          <div className={dispo === 'green' ? 'Salle_divAvailablity active' : 'Salle_divAvailablity'}>
+            <img src={goodSalle} alt="Icône si il reste des places en actif" />
+            <img src={greenSalle} alt="Icône si il reste des places"  />
             <p>Places encore disponible</p>
           </div>
-          <div className={dispo == 'orange' ? 'Salle_divAvailablity active' : 'Salle_divAvailablity'}>
-            <img src={midSalle} />
-            <img src={orangeSalle} />
+          <div className={dispo === 'orange' ? 'Salle_divAvailablity active' : 'Salle_divAvailablity'}>
+            <img src={midSalle}  alt="Icône si il reste presque plus de places en actif" />
+            <img src={orangeSalle} alt="Icône si il reste presque plus de places" />
             <p>Presque plus de places</p>
           </div>
-          <div className={dispo == 'red' ? 'Salle_divAvailablity active' : 'Salle_divAvailablity'}>
-            <img src={badSalle} />
-            <img src={redSalle} />
+          <div className={dispo === 'red' ? 'Salle_divAvailablity active' : 'Salle_divAvailablity'}>
+            <img src={badSalle} alt="Icône si il reste plus de places en actif" />
+            <img src={redSalle} alt="Icône si il reste plus de places" />
             <p>Plus de places disponible</p>
           </div>
         </div>

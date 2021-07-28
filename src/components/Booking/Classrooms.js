@@ -43,9 +43,8 @@ function Classrooms() {
       </div>
       <div className='Classroom_salles'>
         {salles.map((salle, i)=>{
-          const placesAvailable = Math.floor(salle.area / 4) - salle.placeTaken;
           return(
-            salle.step == floor && placesAvailable > 0 ? <Link to={'/booking/' + salle.id} key={i}> <SalleItem key={i} name={salle.name} id={salle.id} placesAvailable={Math.floor(salle.area / 4)} id={salle.id} placesTaken={salle.placeTaken} /></Link> : ''
+            salle.step == floor ? <Link to={'/booking/' + salle.id} key={i}> <SalleItem key={i} id={salle.id} /></Link> : ''
           );
         })}
       </div>

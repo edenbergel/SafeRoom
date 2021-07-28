@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 
-import './floor.scss';
+import './dashboard.scss';
 
 function Floor(props) {
 

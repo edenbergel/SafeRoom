@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
+import moment from 'moment';
 import {dispoSalle} from './dispoSalle'
-import './salleitem.scss';
+import './dashboard.scss';
 import axios from 'axios';
 
 function SalleItem(props) {
@@ -59,22 +60,27 @@ function SalleItem(props) {
     .catch(function (error) {
       console.log(error);
     })
-  })
+  }, [])
 
   const updateValues = (value)=>{
     placesBooking += value;
-    if(nbPerson[props.id]){
-      placesRealTime = nbPerson[props.id]._value;
-    }
-    allPlacesTaken = placesBooking + placesRealTime;
-    dispo = dispoSalle(nbPlaces, allPlacesTaken);
   }
+
+  if(nbPerson[props.id]){
+    placesRealTime = nbPerson[props.id]._value;
+  }
+  allPlacesTaken = placesBooking + placesRealTime;
+  dispo = dispoSalle(nbPlaces, allPlacesTaken);
+
+  bookings.map((booking)=>{
+    return(formatDate === moment(booking.start).format('YYYY-M-DD') ? updateValues(booking.nb_places) : '')
+  })
 
   return (
     <div className='SalleItem' onClick={passId}>
       <div className={dispo}></div>
       <p>{data.name}</p>
-      <p>{nbPlaces - allPlacesTaken} places restantes</p>
+      <p>{nbPlaces - allPlacesTaken}  {nbPlaces - allPlacesTaken <= 1 ? 'place' : 'places'} restantes</p>
     </div>
   );
 }

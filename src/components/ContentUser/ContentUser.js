@@ -42,6 +42,7 @@ function ContentUser() {
           return <Salle id={idSalle} />;
         case "/calendar":
           return <Calendar role={roleUser} />;
+          
       }
     }
     if (roleUser === 'Student'){
