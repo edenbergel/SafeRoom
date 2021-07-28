@@ -37,7 +37,7 @@ function AddSalle(props) {
       })
       .then(function () {
         props.changeVisibility(false);
-        <Redirect to="/dashboard" />
+        window.location.reload(false);
       })
       .catch(function (error) {
         console.log(error);

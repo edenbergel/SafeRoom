@@ -11,14 +11,14 @@ import StepButtons from '../StepButtons/StepButtons';
 import Message from '../ContentUser/Message';
 
 function Dates(props) {
-  const [dateState, setDateState] = useState(new Date());
-  
+  const [dateState, setDateState] = useState(moment().add(1, 'day')._d);
+  const now = new Date();
+
   const changeDate = (e) => {
     setDateState(e);
   }
 
-  //console.log(moment(dateState + 'UTC').utc().format('YYYY-MM-DDTHH:mm:ss.SSS[Z]'));
-
+  console.log(moment().add(1, 'day')._d, dateState)
   useEffect(() => {
     localStorage.setItem("selectedDateInitial", moment(dateState + 'UTC').utc().format('YYYY-MM-DDTHH:mm:ss.SSS[Z]'));
     localStorage.setItem("selectedDate", moment(dateState).format('dddd Do MMMM YYYY'));
@@ -31,7 +31,7 @@ function Dates(props) {
         onChange={changeDate}
         value={dateState}
         locale="fr-FR"
-        tileDisabled={({ date }) => date.getDay() === 6 || date.getDay() === 0 }
+        tileDisabled={({ date }) => date.getDay() === 6 || date.getDay() === 0 || date < now }
         prev2Label={null}
         next2Label={null}
       />

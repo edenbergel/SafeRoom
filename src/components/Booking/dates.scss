@@ -73,5 +73,9 @@
     @media screen and (min-width: 1024px) {
       padding: 0.5em;
     }
-}
+  }
+
+  .react-calendar__tile:disabled {
+    color: $grey;
+  }
 }
